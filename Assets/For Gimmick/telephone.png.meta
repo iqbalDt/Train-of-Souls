@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f57e9f727042c1e49b931c8b6061e489
+guid: 8d68ce6fa4ccbf740833ea0b0e7cd00b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2101220673087864015
-    second: Tombol Setting_0
+      213: 4948933554451466441
+    second: telephone_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tombol Setting_0
+      name: telephone_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 348
-        height: 348
+        width: 32
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fccfb16c119092d10800000000000000
-      internalID: 2101220673087864015
+      spriteID: 9c84712e8d42ea440800000000000000
+      internalID: 4948933554451466441
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tombol Setting_0: 2101220673087864015
+      telephone_0: 4948933554451466441
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
