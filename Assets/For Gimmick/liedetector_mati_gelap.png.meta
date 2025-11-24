@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 48c2fdc537656e4419995382e7c4127b
+guid: e7716d173308b3548873dc1b783983b6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5340304166078895635
-    second: tos_roller_0
+      213: 1453931427343004521
+    second: liedetector_mati_gelap_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tos_roller_0
+      name: liedetector_mati_gelap_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 27
-        width: 181
-        height: 137
+        x: 246
+        y: 59
+        width: 67
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 316dbab48529c1a40800000000000000
-      internalID: 5340304166078895635
+      spriteID: 9637e8e0ee66d2410800000000000000
+      internalID: 1453931427343004521
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tos_roller_0: 5340304166078895635
+      liedetector_mati_gelap_0: 1453931427343004521
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
