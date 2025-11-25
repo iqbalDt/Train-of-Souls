@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 245131060}
   - component: {fileID: 245131059}
   - component: {fileID: 245131058}
+  - component: {fileID: 245131061}
   m_Layer: 5
   m_Name: Bos Tutorial
   m_TagString: Untagged
@@ -251,6 +252,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245131056}
   m_CullTransparentMesh: 1
+--- !u!95 &245131061
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245131056}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9346772eacee71342870e4e00272f891, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &403531078
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,10 +702,10 @@ MonoBehaviour:
   bubblePrefab: {fileID: 5736675483342888346, guid: d5fba6b5ddadac745a37369aa2309a1d, type: 3}
   bubbleSpawnPoint: {fileID: 980719545}
   dialogLines:
-  - Halo guys
-  - Iqbal Ganteng Banget deh
-  - 'Si hakim item bat jir '
-  - IZINNNN
+  - Selamat Datang di Train of Souils!.
+  - Selamat Datang di Train of Souils!.
+  bossAnimator: {fileID: 245131061}
+  bossMoveTrigger: StartMove
 --- !u!1 &1039322098
 GameObject:
   m_ObjectHideFlags: 0
