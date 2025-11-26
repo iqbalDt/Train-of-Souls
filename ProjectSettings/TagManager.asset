@@ -41,11 +41,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: 
-    uniqueID: 4257197939
-    locked: 0
   - name: Background
     uniqueID: 47777783
+    locked: 0
+  - name: npc
+    uniqueID: 4257197939
+    locked: 0
+  - name: New Layer 3
+    uniqueID: 83790179
     locked: 0
   m_RenderingLayers:
   - Default
