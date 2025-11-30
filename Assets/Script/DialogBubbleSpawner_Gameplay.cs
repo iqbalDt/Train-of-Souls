@@ -3,49 +3,59 @@ using TMPro;
 using System.Collections;
 using UnityEngine.UI;
 
-public class DialogBubbleSpawner : MonoBehaviour
+public class DialogBubbleSpawner_Gameplay : MonoBehaviour
 {
     [Header("Bubble Settings")]
     public GameObject bubblePrefab;
-    public Transform bubbleSpawnPoint;
+    public RectTransform bubbleSpawnPoint;
     public string[] dialogLines;
 
-    [Header("Boss Settings")]
-    public Animator bossAnimator;   // 👉 drag animator BOS ke sini
-    public string bossMoveTrigger = "StartMove";  // 👉 nama trigger di Animator
+    [Header("NPC Reference")]
+    public NPC_Controller npc;
 
     private int index = -1;
     private bool isTyping = false;
+    private bool canTalk = false;
 
     private GameObject currentBubble;
     private TMP_Text currentText;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isTyping)
+        if (!canTalk) return;
+
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && !isTyping)
         {
             NextBubble();
         }
     }
 
-    // 👉 DIBUAT PUBLIC AGAR BISA DIPANGGIL DARI SCRIPT LAIN
+    public void AllowTalking()
+    {
+        canTalk = true;
+        NextBubble();
+    }
+
     public void NextBubble()
     {
         index++;
 
-        // 👉 Kalau dialog sudah selesai
         if (index >= dialogLines.Length)
         {
             EndDialog();
             return;
         }
 
-        // Hapus bubble sebelumnya
         if (currentBubble != null)
             Destroy(currentBubble);
 
-        // Spawn bubble baru
-        currentBubble = Instantiate(bubblePrefab, bubbleSpawnPoint.position, Quaternion.identity, transform);
+        // spawn di canvas
+        currentBubble = Instantiate(bubblePrefab, bubbleSpawnPoint.parent);
+
+        // posisikan sesuai spawnpoint NPC
+        currentBubble.GetComponent<RectTransform>().anchoredPosition =
+            bubbleSpawnPoint.anchoredPosition;
+
         currentText = currentBubble.GetComponentInChildren<TMP_Text>();
 
         StopAllCoroutines();
@@ -60,29 +70,21 @@ public class DialogBubbleSpawner : MonoBehaviour
         foreach (char c in fullText)
         {
             currentText.text += c;
-
-            // Refresh layout text
             LayoutRebuilder.ForceRebuildLayoutImmediate(currentText.rectTransform);
-
             yield return new WaitForSeconds(0.02f);
         }
 
         isTyping = false;
     }
 
-    // ----------------------------------------
-    // 👉 FUNGSI SAAT DIALOG SELESAI
-    // ----------------------------------------
     void EndDialog()
     {
-        // Hapus bubble terakhir kalau ada
         if (currentBubble != null)
             Destroy(currentBubble);
 
-        // 🔥 Trigger animasi bos jalan
-        if (bossAnimator != null)
-            bossAnimator.SetTrigger(bossMoveTrigger);
+        canTalk = false;
 
-        // Tambah logic lain di sini jika perlu
+        // ❗ NPC tidak pergi otomatis lagi
+        // Player harus memilih Surga atau Neraka
     }
 }
