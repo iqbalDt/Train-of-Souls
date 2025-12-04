@@ -154,8 +154,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 738.12, y: 341.71}
-  m_SizeDelta: {x: 253.99, y: 165.42}
+  m_AnchoredPosition: {x: 721.93, y: 292.93}
+  m_SizeDelta: {x: 287.48, y: 187.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &379346439
 MonoBehaviour:
@@ -274,8 +274,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 415, y: 95}
-  m_SizeDelta: {x: 100.67, y: 181.81}
+  m_AnchoredPosition: {x: 384.28, y: -62.08}
+  m_SizeDelta: {x: 197.77, y: 415.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &415786236
 MonoBehaviour:
@@ -871,8 +871,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 471.61026, y: 341.70996}
-  m_SizeDelta: {x: 217.21, y: 165.42}
+  m_AnchoredPosition: {x: 384.28, y: 303.84}
+  m_SizeDelta: {x: 197.78, y: 165.42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1602082175
 MonoBehaviour:
@@ -950,7 +950,9 @@ MonoBehaviour:
   - Selamat Datang di Train of Souils!.
   - Selamat Datang di Train of Souils!.
   bossAnimator: {fileID: 0}
-  bossMoveTrigger: StartMove
+  talkTrigger: Talk
+  stopTalkTrigger: StopTalk
+  moveTrigger: StartMove
 --- !u!114 &1756469577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1074,8 +1076,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 711.58, y: 93}
-  m_SizeDelta: {x: 307.06, y: 196.01}
+  m_AnchoredPosition: {x: 721.93, y: 0}
+  m_SizeDelta: {x: 402.44, y: 290.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2086117784
 MonoBehaviour:
