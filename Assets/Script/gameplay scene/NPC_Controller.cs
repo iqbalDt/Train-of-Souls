@@ -2,18 +2,26 @@ using UnityEngine;
 
 public class NPC_Controller : MonoBehaviour
 {
+    [Header("Movement Points")]
     public RectTransform pointMiddle;
     public RectTransform pointRight;
 
+    [Header("NPC State")]
+    public NPCState npcState;
+
+    [Header("Settings")]
     public float speed = 300f;
 
     private RectTransform rt;
     private bool reachedMiddle = false;
     private bool exiting = false;
 
+    private DialogBubbleSpawner_Gameplay bubble;
+
     void Start()
     {
         rt = GetComponent<RectTransform>();
+        bubble = GetComponent<DialogBubbleSpawner_Gameplay>();
     }
 
     void Update()
@@ -22,19 +30,26 @@ public class NPC_Controller : MonoBehaviour
         {
             MoveTo(pointMiddle.anchoredPosition);
 
-            if (Vector2.Distance(rt.anchoredPosition, pointMiddle.anchoredPosition) < 5f)
+            if (Vector2.Distance(rt.anchoredPosition, pointMiddle.anchoredPosition) < 2f)
             {
                 reachedMiddle = true;
 
                 // Mulai dialog
-                GetComponent<DialogBubbleSpawner_Gameplay>().AllowTalking();
+                bubble.AllowTalking();
+
+                // beri tahu gameflow
+                var flow = FindFirstObjectByType<GameFlowController>();
+                if (flow != null)
+                    flow.OnNPCReachedMiddle();
+
+                return;
             }
         }
         else if (exiting)
         {
             MoveTo(pointRight.anchoredPosition);
 
-            if (Vector2.Distance(rt.anchoredPosition, pointRight.anchoredPosition) < 5f)
+            if (Vector2.Distance(rt.anchoredPosition, pointRight.anchoredPosition) < 2f)
             {
                 Destroy(gameObject);
             }
@@ -47,8 +62,7 @@ public class NPC_Controller : MonoBehaviour
             Vector2.MoveTowards(rt.anchoredPosition, target, speed * Time.deltaTime);
     }
 
-    // Dipanggil saat player memilih Surga/Neraka
-    public void OnDialogFinished()
+    public void StartExitMovement()
     {
         exiting = true;
     }
