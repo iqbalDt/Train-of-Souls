@@ -144,15 +144,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubblePrefab: {fileID: 5736675483342888346, guid: 84a37021de1c982408b3d65b56bd3210, type: 3}
   bubbleSpawnPoint: {fileID: 4428945694749587252}
-  truthDialogs:
-  - text: truth
-    moralValue: 1
-  lieDialogs:
-  - text: lie
-    moralValue: 0
-  neutralDialogs:
-  - text: neutral
-    moralValue: 0
+  topics:
+  - topicName: a
+    truthText: a
+    truthValue: 0
+    truthTelephoneHint: 'a
+
+      berdasarkan riset dari pak presiden'
+    lieText: a
+    lieValue: 0
+    lieTelephoneHint: 'a
+
+      berdasarkan riset dari pak presiden'
+    neutralText: a
+    neutralValue: 0
+    neutralTelephoneHint: 'a
+
+      berdasarkan riset dari pak presiden'
+  activeTopic:
+    topicName: 
+    truthText: 
+    truthValue: 0
+    truthTelephoneHint: 
+    lieText: 
+    lieValue: 0
+    lieTelephoneHint: 
+    neutralText: 
+    neutralValue: 0
+    neutralTelephoneHint: 
 --- !u!114 &-6573968059106443193
 MonoBehaviour:
   m_ObjectHideFlags: 0

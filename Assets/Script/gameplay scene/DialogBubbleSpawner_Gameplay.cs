@@ -4,131 +4,136 @@ using System.Collections;
 
 public class DialogBubbleSpawner_Gameplay : MonoBehaviour
 {
-    [System.Serializable]
-    public struct DialogEntry
-    {
-        [TextArea(3,10)]
-        public string text;
+    public enum MoralValue { Heaven, Hell, Neutral }
 
-        public MoralValue moralValue;
-    }
+    [Header("List of Topics for this NPC")]
+    public DialogTopic[] topics;
+    [HideInInspector] public DialogTopic activeTopic;
 
-    public enum MoralValue
-    {
-        Heaven,
-        Hell,
-        Neutral
-    }
-
-    [Header("Bubble Prefab")]
+    [Header("Bubble UI")]
     public GameObject bubblePrefab;
     public RectTransform bubbleSpawnPoint;
 
-    [Header("Dialog Sets")]
-    public DialogEntry[] truthDialogs;
-    public DialogEntry[] lieDialogs;
-    public DialogEntry[] neutralDialogs;
-
-    private DialogEntry[] chosenDialogs;
-    private int index = -1;
+    private string[] activeTextLines;
+    private MoralValue activeValue;
 
     private bool allowTalking = false;
     private bool isTyping = false;
+    private int lineIndex = 0;
 
-    private GameObject currentBubble;
-    private TMP_Text currentText;
+    private GameObject bubbleObj;
+    private TMP_Text bubbleTMP;
 
-    private MoralValue currentDialogValue;
+    private NPCState currentState;
 
-    public void SetupDialog(NPCState state)
+    [Header("Typewriter Settings")]
+    public float typeSpeed = 0.02f;
+
+    // ============================
+    //      TOPIC ASSIGNMENT
+    // ============================
+    public void AssignTopic(NPCState state)
     {
+        currentState = state;
+
+        if (topics == null || topics.Length == 0)
+        {
+            Debug.LogWarning("NPC tidak punya topic!");
+            return;
+        }
+
+        activeTopic = topics[Random.Range(0, topics.Length)];
+        string rawText = "";
+
         switch (state)
         {
             case NPCState.Truth:
-                chosenDialogs = truthDialogs;
+                rawText = activeTopic.truthText;
+                activeValue = activeTopic.truthValue;
                 break;
 
             case NPCState.Lie:
-                chosenDialogs = lieDialogs;
+                rawText = activeTopic.lieText;
+                activeValue = activeTopic.lieValue;
                 break;
 
             case NPCState.Neutral:
-                chosenDialogs = neutralDialogs;
+                rawText = activeTopic.neutralText;
+                activeValue = activeTopic.neutralValue;
                 break;
         }
 
-        // fallback jika kosong
-        if (chosenDialogs == null || chosenDialogs.Length == 0)
-        {
-            chosenDialogs = new DialogEntry[]
-            {
-                new DialogEntry { text = "...", moralValue = MoralValue.Neutral }
-            };
-        }
+        // multi-line support
+        activeTextLines = rawText.Split('\n');
+        lineIndex = 0;
     }
 
-    public MoralValue GetCurrentMoralValue()
-    {
-        return currentDialogValue;
-    }
+    public MoralValue GetCurrentMoralValue() => activeValue;
+    public DialogTopic GetActiveTopic() => activeTopic;
+    public NPCState GetNPCState() => currentState;
 
+    // ============================
+    //      TALK FLOW
+    // ============================
     public void AllowTalking()
     {
-        index = -1;
         allowTalking = true;
-        NextBubble();
+        ShowNextLine();
     }
 
     void Update()
     {
         if (!allowTalking) return;
 
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && !isTyping)
-            NextBubble();
+        // SPACE untuk lanjut dialog NPC
+        if (!isTyping && Input.GetKeyDown(KeyCode.Space))
+        {
+            ShowNextLine();
+        }
     }
 
-    public void NextBubble()
+    void ShowNextLine()
     {
-        index++;
-
-        if (index >= chosenDialogs.Length)
+        if (lineIndex >= activeTextLines.Length)
         {
             EndDialog();
             return;
         }
 
-        if (currentBubble != null)
-            Destroy(currentBubble);
+        if (bubbleObj != null)
+            Destroy(bubbleObj);
 
-        currentBubble = Instantiate(bubblePrefab, bubbleSpawnPoint.position, Quaternion.identity, transform);
-        currentText = currentBubble.GetComponentInChildren<TMP_Text>();
-
-        currentDialogValue = chosenDialogs[index].moralValue;
+        bubbleObj = Instantiate(bubblePrefab, bubbleSpawnPoint.position, Quaternion.identity, transform);
+        bubbleTMP = bubbleObj.GetComponentInChildren<TMP_Text>();
 
         StopAllCoroutines();
-        StartCoroutine(TypeText(chosenDialogs[index].text));
+        StartCoroutine(TypeLine(activeTextLines[lineIndex]));
+
+        lineIndex++;
     }
 
-    IEnumerator TypeText(string text)
+    IEnumerator TypeLine(string text)
     {
         isTyping = true;
-        currentText.text = "";
+        bubbleTMP.text = "";
 
         foreach (char c in text)
         {
-            currentText.text += c;
-            yield return new WaitForSeconds(0.015f);
+            bubbleTMP.text += c;
+            yield return new WaitForSeconds(typeSpeed);
         }
 
         isTyping = false;
+
+        // NPC MENUNGGU SPACE, jadi tidak ada auto-next
     }
 
     void EndDialog()
     {
-        if (currentBubble != null)
-            Destroy(currentBubble);
-
         allowTalking = false;
+
+        if (bubbleObj != null)
+            Destroy(bubbleObj);
 
         FindFirstObjectByType<GameFlowController>().OnDialogFinished();
     }

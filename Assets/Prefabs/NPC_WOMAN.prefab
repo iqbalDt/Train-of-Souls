@@ -144,15 +144,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubblePrefab: {fileID: 5736675483342888346, guid: 84a37021de1c982408b3d65b56bd3210, type: 3}
   bubbleSpawnPoint: {fileID: 4428945694749587252}
-  truthDialogs:
-  - text: truth
-    moralValue: 1
-  lieDialogs:
-  - text: lie
-    moralValue: 1
-  neutralDialogs:
-  - text: neutral
-    moralValue: 1
+  topics:
+  - topicName: e
+    truthText: e
+    truthValue: 0
+    truthTelephoneHint: e
+    lieText: e
+    lieValue: 0
+    lieTelephoneHint: e
+    neutralText: e
+    neutralValue: 0
+    neutralTelephoneHint: e
+  activeTopic:
+    topicName: 
+    truthText: 
+    truthValue: 0
+    truthTelephoneHint: 
+    lieText: 
+    lieValue: 0
+    lieTelephoneHint: 
+    neutralText: 
+    neutralValue: 0
+    neutralTelephoneHint: 
 --- !u!114 &3537848497767012106
 MonoBehaviour:
   m_ObjectHideFlags: 0
