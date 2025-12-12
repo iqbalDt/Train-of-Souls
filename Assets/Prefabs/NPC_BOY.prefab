@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 2102803692051032425}
   - component: {fileID: -7716741145337804926}
   - component: {fileID: -5429056928232008951}
+  - component: {fileID: -8096441073129150739}
   m_Layer: 5
   m_Name: NPC_BOY
   m_TagString: Untagged
@@ -142,8 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4b02b2b36f30648a9c01168b285670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubblePrefab: {fileID: 5736675483342888346, guid: 84a37021de1c982408b3d65b56bd3210, type: 3}
-  bubbleSpawnPoint: {fileID: 4428945694749587252}
   topics:
   - topicName: tewsst
     truthText: turht
@@ -163,7 +162,7 @@ MonoBehaviour:
       berdasarkan
       riset dari pak presiden'
     neutralText: neutral
-    neutralValue: 1
+    neutralValue: 0
     neutralTelephoneHint: 'berdasarkan riset dari pak presiden
 
       berdasarkan
@@ -181,6 +180,9 @@ MonoBehaviour:
     neutralText: 
     neutralValue: 0
     neutralTelephoneHint: 
+  bubblePrefab: {fileID: 5736675483342888346, guid: 84a37021de1c982408b3d65b56bd3210, type: 3}
+  bubbleSpawnPoint: {fileID: 4428945694749587252}
+  typeSpeed: 0.02
 --- !u!114 &-5429056928232008951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,3 +196,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLying: 0
+--- !u!95 &-8096441073129150739
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4190291845773044640}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

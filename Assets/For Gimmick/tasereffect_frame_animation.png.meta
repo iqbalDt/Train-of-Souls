@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: f17a1c2034498584c9bccf2a9749f323
+guid: 02605c3394cc7c44ca38d9929ed843ed
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7013295283611915917
-    second: tasereffect_animation_0
+      213: 2651285969982893320
+    second: tasereffect_frame_animation_0
   - first:
-      213: 5045510407126293417
-    second: tasereffect_animation_1
+      213: -5025727957529425597
+    second: tasereffect_frame_animation_1
   - first:
-      213: -6601460344889423358
-    second: tasereffect_animation_2
+      213: 6812149327929878623
+    second: tasereffect_frame_animation_2
   - first:
-      213: 1018931101522307977
-    second: tasereffect_animation_3
+      213: 5693528174648327372
+    second: tasereffect_frame_animation_3
   - first:
-      213: 3877194414928495287
-    second: tasereffect_animation_4
+      213: 4003663651318033372
+    second: tasereffect_frame_animation_4
   - first:
-      213: 7155509846823153621
-    second: tasereffect_animation_5
+      213: -6565994177288568408
+    second: tasereffect_frame_animation_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tasereffect_animation_0
+      name: tasereffect_frame_animation_0
       rect:
         serializedVersion: 2
         x: 13
@@ -130,19 +130,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d865c9407ea345160800000000000000
-      internalID: 7013295283611915917
+      spriteID: 80daec6ea824bc420800000000000000
+      internalID: 2651285969982893320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tasereffect_animation_1
+      name: tasereffect_frame_animation_1
       rect:
         serializedVersion: 2
         x: 333
         y: 24
-        width: 192
+        width: 187
         height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -152,19 +152,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9ab9c47abf0450640800000000000000
-      internalID: 5045510407126293417
+      spriteID: 34985b1dc07014ab0800000000000000
+      internalID: -5025727957529425597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tasereffect_animation_2
+      name: tasereffect_frame_animation_2
       rect:
         serializedVersion: 2
         x: 653
         y: 24
-        width: 192
+        width: 187
         height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -174,19 +174,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 20ac908dac6e264a0800000000000000
-      internalID: -6601460344889423358
+      spriteID: f582d20b8bd998e50800000000000000
+      internalID: 6812149327929878623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tasereffect_animation_3
+      name: tasereffect_frame_animation_3
       rect:
         serializedVersion: 2
         x: 973
         y: 24
-        width: 192
+        width: 187
         height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -196,19 +196,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 98ba5d43078f32e00800000000000000
-      internalID: 1018931101522307977
+      spriteID: ccc779095b9730f40800000000000000
+      internalID: 5693528174648327372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tasereffect_animation_4
+      name: tasereffect_frame_animation_4
       rect:
         serializedVersion: 2
         x: 1293
         y: 24
-        width: 192
+        width: 187
         height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -218,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7b201f237cf8ec530800000000000000
-      internalID: 3877194414928495287
+      spriteID: cdb64f8e0eedf8730800000000000000
+      internalID: 4003663651318033372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tasereffect_animation_5
+      name: tasereffect_frame_animation_5
       rect:
         serializedVersion: 2
         x: 1613
@@ -240,8 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5df24be4b4a7d4360800000000000000
-      internalID: 7155509846823153621
+      spriteID: 8a18e697517e0e4a0800000000000000
+      internalID: -6565994177288568408
       vertices: []
       indices: 
       edges: []
@@ -260,12 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tasereffect_animation_0: 7013295283611915917
-      tasereffect_animation_1: 5045510407126293417
-      tasereffect_animation_2: -6601460344889423358
-      tasereffect_animation_3: 1018931101522307977
-      tasereffect_animation_4: 3877194414928495287
-      tasereffect_animation_5: 7155509846823153621
+      tasereffect_frame_animation_0: 2651285969982893320
+      tasereffect_frame_animation_1: -5025727957529425597
+      tasereffect_frame_animation_2: 6812149327929878623
+      tasereffect_frame_animation_3: 5693528174648327372
+      tasereffect_frame_animation_4: 4003663651318033372
+      tasereffect_frame_animation_5: -6565994177288568408
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

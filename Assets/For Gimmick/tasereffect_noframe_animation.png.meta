@@ -1,0 +1,1053 @@
+fileFormatVersion: 2
+guid: af2e40478bcae0e4da907a5bee5fab39
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4103448630842893103
+    second: tasereffect_noframe_animation_0
+  - first:
+      213: 4262039877100019018
+    second: tasereffect_noframe_animation_1
+  - first:
+      213: -2683488797535022828
+    second: tasereffect_noframe_animation_2
+  - first:
+      213: -5267150795711820377
+    second: tasereffect_noframe_animation_3
+  - first:
+      213: -1008678688512719191
+    second: tasereffect_noframe_animation_4
+  - first:
+      213: -2297858346016770385
+    second: tasereffect_noframe_animation_5
+  - first:
+      213: 8784528272845131602
+    second: tasereffect_noframe_animation_6
+  - first:
+      213: 569407162146222874
+    second: tasereffect_noframe_animation_7
+  - first:
+      213: -6772675406513425560
+    second: tasereffect_noframe_animation_8
+  - first:
+      213: -7311070150284109910
+    second: tasereffect_noframe_animation_9
+  - first:
+      213: -7620265436998725700
+    second: tasereffect_noframe_animation_10
+  - first:
+      213: 1991455715310434078
+    second: tasereffect_noframe_animation_11
+  - first:
+      213: 4162405941064972000
+    second: tasereffect_noframe_animation_12
+  - first:
+      213: 6583013732751274060
+    second: tasereffect_noframe_animation_13
+  - first:
+      213: 4180442667507850752
+    second: tasereffect_noframe_animation_14
+  - first:
+      213: 6447236746674720892
+    second: tasereffect_noframe_animation_15
+  - first:
+      213: 7800124080506298761
+    second: tasereffect_noframe_animation_16
+  - first:
+      213: 4994383628882148654
+    second: tasereffect_noframe_animation_17
+  - first:
+      213: -2036648928920724542
+    second: tasereffect_noframe_animation_18
+  - first:
+      213: -7797128272805868157
+    second: tasereffect_noframe_animation_19
+  - first:
+      213: 4602653680406446774
+    second: tasereffect_noframe_animation_20
+  - first:
+      213: 6361145312817928935
+    second: tasereffect_noframe_animation_21
+  - first:
+      213: 496705349261455629
+    second: tasereffect_noframe_animation_22
+  - first:
+      213: -1682013838381697793
+    second: tasereffect_noframe_animation_23
+  - first:
+      213: 1980724720570718786
+    second: tasereffect_noframe_animation_24
+  - first:
+      213: -2521761979656667686
+    second: tasereffect_noframe_animation_25
+  - first:
+      213: 3452545685564673860
+    second: tasereffect_noframe_animation_26
+  - first:
+      213: -9043864424892285740
+    second: tasereffect_noframe_animation_27
+  - first:
+      213: 3809058596912467525
+    second: tasereffect_noframe_animation_28
+  - first:
+      213: -8357630439515216250
+    second: tasereffect_noframe_animation_29
+  - first:
+      213: 8158627659813141608
+    second: tasereffect_noframe_animation_30
+  - first:
+      213: -1482984086072817936
+    second: tasereffect_noframe_animation_31
+  - first:
+      213: 5976703338215365786
+    second: tasereffect_noframe_animation_32
+  - first:
+      213: -8133051822419271682
+    second: tasereffect_noframe_animation_33
+  - first:
+      213: 2266974853500785280
+    second: tasereffect_noframe_animation_34
+  - first:
+      213: -1668462161964075881
+    second: tasereffect_noframe_animation_35
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 129
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dcdb84163f9d07c0800000000000000
+      internalID: -4103448630842893103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_1
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 142
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4d981ddfaec52b30800000000000000
+      internalID: 4262039877100019018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_2
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 125
+        width: 26
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4115f28082552cad0800000000000000
+      internalID: -2683488797535022828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_3
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 156
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ad4e23024257e6b0800000000000000
+      internalID: -5267150795711820377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_4
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 139
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a641b6b3147002f0800000000000000
+      internalID: -1008678688512719191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_5
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 125
+        width: 37
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa6f085420e5c10e0800000000000000
+      internalID: -2297858346016770385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_6
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 155
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25f4f46fbe9e8e970800000000000000
+      internalID: 8784528272845131602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_7
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 141
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a13f9401cc0f6e700800000000000000
+      internalID: 569407162146222874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_8
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 133
+        width: 11
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8633eb7d99f9202a0800000000000000
+      internalID: -6772675406513425560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_9
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 155
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa79a5c1f6cd98a90800000000000000
+      internalID: -7311070150284109910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_10
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 144
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbf018d75f06f3690800000000000000
+      internalID: -7620265436998725700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_11
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 122
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e17fff00c6213ab10800000000000000
+      internalID: 1991455715310434078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_12
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 122
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e637286626d3c930800000000000000
+      internalID: 4162405941064972000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_13
+      rect:
+        serializedVersion: 2
+        x: 1320
+        y: 134
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4078249c109b5b50800000000000000
+      internalID: 6583013732751274060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_14
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 103
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00e11b8057ae30a30800000000000000
+      internalID: 4180442667507850752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_15
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 89
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c70546489af297950800000000000000
+      internalID: 6447236746674720892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_16
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 100
+        width: 12
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9816c8e368b9f3c60800000000000000
+      internalID: 7800124080506298761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_17
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 89
+        width: 12
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2dfb87f27d9f4540800000000000000
+      internalID: 4994383628882148654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_18
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 88
+        width: 21
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cb108bf69e5cb3e0800000000000000
+      internalID: -2036648928920724542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_19
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 82
+        width: 14
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38d404795290bc390800000000000000
+      internalID: -7797128272805868157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_20
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 84
+        width: 21
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b245cce229efdf30800000000000000
+      internalID: 4602653680406446774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_21
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 88
+        width: 13
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ea572f85f3574850800000000000000
+      internalID: 6361145312817928935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_22
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 82
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d01f3cc22e6a4e600800000000000000
+      internalID: 496705349261455629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_23
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 105
+        width: 9
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff4b7ff535948a8e0800000000000000
+      internalID: -1682013838381697793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_24
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 96
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24ad37793a2fc7b10800000000000000
+      internalID: 1980724720570718786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_25
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 88
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: add7a7227d6e00dd0800000000000000
+      internalID: -2521761979656667686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_26
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 88
+        width: 164
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44fc3e63208e9ef20800000000000000
+      internalID: 3452545685564673860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_27
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 78
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dcb085d83dbd7280800000000000000
+      internalID: -9043864424892285740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_28
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 79
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54e8d95dc9e7cd430800000000000000
+      internalID: 3809058596912467525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_29
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 82
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68624b8556bb30c80800000000000000
+      internalID: -8357630439515216250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_30
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 41
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86cb6dd51a4493170800000000000000
+      internalID: 8158627659813141608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_31
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 45
+        width: 34
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f68216b4d16b6be0800000000000000
+      internalID: -1482984086072817936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_32
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 36
+        width: 55
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9cd73a250481f250800000000000000
+      internalID: 5976703338215365786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_33
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 28
+        width: 65
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eff1bd05578912f80800000000000000
+      internalID: -8133051822419271682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_34
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 31
+        width: 60
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08258a94e99e57f10800000000000000
+      internalID: 2266974853500785280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tasereffect_noframe_animation_35
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 31
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79473fae08e68d8e0800000000000000
+      internalID: -1668462161964075881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tasereffect_noframe_animation_0: -4103448630842893103
+      tasereffect_noframe_animation_1: 4262039877100019018
+      tasereffect_noframe_animation_10: -7620265436998725700
+      tasereffect_noframe_animation_11: 1991455715310434078
+      tasereffect_noframe_animation_12: 4162405941064972000
+      tasereffect_noframe_animation_13: 6583013732751274060
+      tasereffect_noframe_animation_14: 4180442667507850752
+      tasereffect_noframe_animation_15: 6447236746674720892
+      tasereffect_noframe_animation_16: 7800124080506298761
+      tasereffect_noframe_animation_17: 4994383628882148654
+      tasereffect_noframe_animation_18: -2036648928920724542
+      tasereffect_noframe_animation_19: -7797128272805868157
+      tasereffect_noframe_animation_2: -2683488797535022828
+      tasereffect_noframe_animation_20: 4602653680406446774
+      tasereffect_noframe_animation_21: 6361145312817928935
+      tasereffect_noframe_animation_22: 496705349261455629
+      tasereffect_noframe_animation_23: -1682013838381697793
+      tasereffect_noframe_animation_24: 1980724720570718786
+      tasereffect_noframe_animation_25: -2521761979656667686
+      tasereffect_noframe_animation_26: 3452545685564673860
+      tasereffect_noframe_animation_27: -9043864424892285740
+      tasereffect_noframe_animation_28: 3809058596912467525
+      tasereffect_noframe_animation_29: -8357630439515216250
+      tasereffect_noframe_animation_3: -5267150795711820377
+      tasereffect_noframe_animation_30: 8158627659813141608
+      tasereffect_noframe_animation_31: -1482984086072817936
+      tasereffect_noframe_animation_32: 5976703338215365786
+      tasereffect_noframe_animation_33: -8133051822419271682
+      tasereffect_noframe_animation_34: 2266974853500785280
+      tasereffect_noframe_animation_35: -1668462161964075881
+      tasereffect_noframe_animation_4: -1008678688512719191
+      tasereffect_noframe_animation_5: -2297858346016770385
+      tasereffect_noframe_animation_6: 8784528272845131602
+      tasereffect_noframe_animation_7: 569407162146222874
+      tasereffect_noframe_animation_8: -6772675406513425560
+      tasereffect_noframe_animation_9: -7311070150284109910
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
