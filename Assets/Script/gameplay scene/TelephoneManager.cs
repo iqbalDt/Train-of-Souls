@@ -31,14 +31,14 @@ public class TelephoneManager : MonoBehaviour
         Instance = this;
     }
 
-    // RESET PER NPC
+    // RESET PER NPC — TELEPON HARUS NONAKTIF DI AWAL
     public void ResetTelephoneForNewNPC()
     {
         hasUsedTelephoneForCurrentNPC = false;
         ClearSubtitle();
 
         if (telephoneButton != null)
-            telephoneButton.interactable = true;
+            telephoneButton.interactable = false;
     }
 
     public void CallRelative(GameObject npcObj)
@@ -74,7 +74,6 @@ public class TelephoneManager : MonoBehaviour
 
     void Update()
     {
-        // SPACE to advance telephone messages
         if (subtitleObj != null && !isTyping && Input.GetKeyDown(KeyCode.Space))
         {
             ShowNextLine();
@@ -121,8 +120,6 @@ public class TelephoneManager : MonoBehaviour
         }
 
         isTyping = false;
-
-        // MENUNGGU SPACE untuk lanjutkan dialog telepon
     }
 
     public void ClearSubtitle()

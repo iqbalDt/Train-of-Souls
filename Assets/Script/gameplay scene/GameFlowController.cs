@@ -34,9 +34,9 @@ public class GameFlowController : MonoBehaviour
         spawner.SpawnNextNPC();
         spawnedCount++;
 
-        // Enable tombol telepon untuk NPC ini
+        // Telepon HARUS nonaktif dulu
         if (telephoneButton != null)
-            telephoneButton.interactable = true;
+            telephoneButton.interactable = false;
 
         // Pastikan tombol pilihan aktif
         surgaButton.interactable = true;
@@ -51,7 +51,7 @@ public class GameFlowController : MonoBehaviour
         telephoneButton.gameObject.SetActive(true);
     }
 
-    // Dipanggil setelah dialog NPC selesai
+    // DIPANGGIL SETELAH DIALOG NPC SELESAI
     public void OnDialogFinished()
     {
         var npc = spawner.currentNPC;
@@ -59,6 +59,10 @@ public class GameFlowController : MonoBehaviour
 
         var ctrl = npc.GetComponent<NPC_Controller>();
         UpdateLieDetector(ctrl.npcState);
+
+        // === TELEPON BARU BISA DIGUNAKAN SETELAH DIALOG SELESAI ===
+        if (telephoneButton != null)
+            telephoneButton.interactable = true;
     }
 
     // Update UI Lie Detector berdasarkan state NPC
@@ -105,7 +109,6 @@ public class GameFlowController : MonoBehaviour
             return;
         }
 
-        // Ambil moral value dari dialog yang sudah selesai
         var moralValue = dialog.GetCurrentMoralValue();
         bool correct = IsCorrectChoice(moralValue, choseHeaven);
 

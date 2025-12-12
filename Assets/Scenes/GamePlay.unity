@@ -258,7 +258,11 @@ MonoBehaviour:
   iconActive: {fileID: 1495263388}
   windowLightning: {fileID: 194673472}
   lightningFrames:
-  - {fileID: 5045510407126293417, guid: f17a1c2034498584c9bccf2a9749f323, type: 3}
+  - {fileID: 2651285969982893320, guid: 02605c3394cc7c44ca38d9929ed843ed, type: 3}
+  - {fileID: -5025727957529425597, guid: 02605c3394cc7c44ca38d9929ed843ed, type: 3}
+  - {fileID: 6812149327929878623, guid: 02605c3394cc7c44ca38d9929ed843ed, type: 3}
+  - {fileID: 5693528174648327372, guid: 02605c3394cc7c44ca38d9929ed843ed, type: 3}
+  - {fileID: 4003663651318033372, guid: 02605c3394cc7c44ca38d9929ed843ed, type: 3}
   frameRate: 0.05
 --- !u!1 &194673470
 GameObject:
