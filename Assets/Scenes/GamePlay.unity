@@ -1096,7 +1096,16 @@ MonoBehaviour:
   endingTiers:
   - minWrong: 0
     maxWrong: 0
-    sceneName: 
+    sceneName: EndingPerfect
+  - minWrong: 1
+    maxWrong: 1
+    sceneName: EndingGood
+  - minWrong: 2
+    maxWrong: 3
+    sceneName: EndingBad
+  - minWrong: 4
+    maxWrong: 99
+    sceneName: EndingVeryBad
 --- !u!1 &1128546647
 GameObject:
   m_ObjectHideFlags: 0
