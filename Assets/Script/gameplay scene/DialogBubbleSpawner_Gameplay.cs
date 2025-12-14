@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.UI;
 
 public class DialogBubbleSpawner_Gameplay : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
     public float typeSpeed = 0.03f;
     public bool allowSkipTyping = true;
 
+    [Header("Reaction Settings")]
+    [Tooltip("Waktu diam setelah reaction selesai diketik")]
+    public float reactionHoldDuration = 1.8f;
+
     private string[] activeTextLines;
     private MoralValue activeValue;
     private NPCEmotion activeEmotion;
@@ -34,7 +39,10 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
     private bool dialogFinished = false;
 
     private NPC_AnimatorController npcAnimator;
+    private NPCVoiceProfile voiceProfile;
 
+    // =========================
+    // PUBLIC READ
     // =========================
 
     public bool IsDialogFinished() => dialogFinished;
@@ -45,6 +53,7 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
     void Awake()
     {
         npcAnimator = GetComponent<NPC_AnimatorController>();
+        voiceProfile = GetComponent<NPCVoiceProfile>(); // ✅ ambil dari NPC prefab yang sama
     }
 
     public void AssignTopic(NPCState state)
@@ -85,9 +94,13 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
     {
         allowTalking = true;
 
-        // 🎭 SET EMOTION SEKALI DI AWAL DIALOG
+        // 🎭 set emosi di awal dialog
         if (npcAnimator != null)
             npcAnimator.SetEmotion(activeEmotion);
+
+        // 🔊 MAIN DIALOG VOICE: berdasarkan emosi dialog (Happy/Sad/Mad/Neutral)
+        if (voiceProfile != null)
+            voiceProfile.PlayByEmotion(activeEmotion);
 
         ShowNextLine();
     }
@@ -105,6 +118,10 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
         }
     }
 
+    // =========================
+    // MAIN DIALOG
+    // =========================
+
     void ShowNextLine()
     {
         if (lineIndex >= activeTextLines.Length)
@@ -116,7 +133,13 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
         if (bubbleObj != null)
             Destroy(bubbleObj);
 
-        bubbleObj = Instantiate(bubblePrefab, bubbleSpawnPoint.position, Quaternion.identity, transform);
+        bubbleObj = Instantiate(
+            bubblePrefab,
+            bubbleSpawnPoint.position,
+            Quaternion.identity,
+            transform
+        );
+
         bubbleTMP = bubbleObj.GetComponentInChildren<TMP_Text>();
 
         StopAllCoroutines();
@@ -138,7 +161,13 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
         foreach (char c in text)
         {
             if (skipTyping) break;
+
             bubbleTMP.text += c;
+
+            LayoutRebuilder.ForceRebuildLayoutImmediate(
+                bubbleTMP.rectTransform.parent as RectTransform
+            );
+
             yield return new WaitForSeconds(typeSpeed);
         }
 
@@ -164,37 +193,69 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
     }
 
     // =========================
-    // REACTIONS
+    // REACTIONS (STUN & LIE)
     // =========================
 
-    public void ShowStunReaction(string text, float duration = 1.2f)
+    public void ShowStunReaction(string text)
     {
-        StartCoroutine(ReactionRoutine(text, duration));
+        // 🔊 STUN selalu pakai emosi marah (default Mad, bisa kamu ubah di Inspector)
+        if (voiceProfile != null)
+            voiceProfile.PlayStunVoice();
+
+        StartCoroutine(ReactionRoutine(text));
     }
 
-    public void ShowDetectorReaction(string text, float duration = 1f)
+    public void ShowDetectorReaction(string text)
     {
-        StartCoroutine(ReactionRoutine(text, duration));
+        // 🔊 LieDetector: Truth -> Happy, Lie -> Mad (default), bisa kamu ubah mapping-nya di Inspector
+        if (voiceProfile != null)
+            voiceProfile.PlayLieDetectorVoice(currentState);
+
+        StartCoroutine(ReactionRoutine(text));
     }
 
-    IEnumerator ReactionRoutine(string text, float duration)
+    IEnumerator ReactionRoutine(string text)
     {
-        bool prev = allowTalking;
+        bool prevAllowTalking = allowTalking;
         allowTalking = false;
 
+        if (bubbleObj != null)
+            Destroy(bubbleObj);
+
+        bubbleObj = Instantiate(
+            bubblePrefab,
+            bubbleSpawnPoint.position,
+            Quaternion.identity,
+            transform
+        );
+
+        bubbleTMP = bubbleObj.GetComponentInChildren<TMP_Text>();
+        bubbleTMP.text = "";
+
+        // NPC bicara
         if (npcAnimator != null)
             npcAnimator.SetSpeaking(true);
 
-        GameObject obj = Instantiate(bubblePrefab, bubbleSpawnPoint.position, Quaternion.identity, transform);
-        TMP_Text tmp = obj.GetComponentInChildren<TMP_Text>();
-        tmp.text = text;
+        // TYPEWRITER reaction (tidak bisa diskip)
+        foreach (char c in text)
+        {
+            bubbleTMP.text += c;
 
-        yield return new WaitForSeconds(duration);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(
+                bubbleTMP.rectTransform.parent as RectTransform
+            );
+
+            yield return new WaitForSeconds(typeSpeed);
+        }
 
         if (npcAnimator != null)
             npcAnimator.SetSpeaking(false);
 
-        Destroy(obj);
-        allowTalking = prev;
+        yield return new WaitForSeconds(reactionHoldDuration);
+
+        Destroy(bubbleObj);
+        bubbleObj = null;
+
+        allowTalking = prevAllowTalking;
     }
 }

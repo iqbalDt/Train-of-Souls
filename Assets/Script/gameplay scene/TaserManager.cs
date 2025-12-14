@@ -14,6 +14,9 @@ public class TaserManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     public Sprite[] lightningFrames;
     public float frameRate = 0.05f;
 
+    [Header("Audio")]
+    public AudioSource taserLoopAudio; // 🔊 LOOP AUDIO TASER
+
     [Header("Stun Settings")]
     public NPC_Spawner spawner;
     public int maxStunUses = 2;
@@ -34,18 +37,33 @@ public class TaserManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
         if (iconActive != null)
             iconActive.gameObject.SetActive(false);
+
+        if (taserLoopAudio != null)
+            taserLoopAudio.loop = true; // 🔁 PASTI LOOP
     }
 
     // =========================
-    // POINTER DOWN (START STUN)
+    // POINTER DOWN (START HOLD)
     // =========================
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (stunUses >= maxStunUses) return;
-        if (spawner == null || spawner.currentNPC == null) return;
+        // 🚫 STUN HABIS → TIDAK ADA APA-APA
+        if (stunUses >= maxStunUses)
+            return;
 
-        stunUses++;
+        if (spawner == null || spawner.currentNPC == null)
+            return;
+
+        // 🔒 SUDAH HOLDING → JANGAN RE-TRIGGER
+        if (isHolding)
+            return;
+
         isHolding = true;
+        stunUses++;
+
+        // 🔊 START LOOP AUDIO
+        if (taserLoopAudio != null && !taserLoopAudio.isPlaying)
+            taserLoopAudio.Play();
 
         if (iconActive != null)
             iconActive.gameObject.SetActive(true);
@@ -61,6 +79,7 @@ public class TaserManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         if (anim != null)
             anim.PlayStunEffect();
 
+        // 🔻 VISUAL DISABLE KALAU HABIS
         if (stunUses >= maxStunUses && iconNormal != null)
         {
             Color c = iconNormal.color;
@@ -70,13 +89,18 @@ public class TaserManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     }
 
     // =========================
-    // POINTER UP (END STUN)
+    // POINTER UP (END HOLD)
     // =========================
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (!isHolding) return;
+        if (!isHolding)
+            return;
 
         isHolding = false;
+
+        // 🔇 STOP LOOP AUDIO
+        if (taserLoopAudio != null && taserLoopAudio.isPlaying)
+            taserLoopAudio.Stop();
 
         if (iconActive != null)
             iconActive.gameObject.SetActive(false);
@@ -90,7 +114,7 @@ public class TaserManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         {
             var anim = stunnedNPC.GetComponent<NPC_AnimatorController>();
             if (anim != null)
-                anim.EndStun(); // 🔥 AUTO MAD
+                anim.EndStun();
 
             var dialog = stunnedNPC.GetComponent<DialogBubbleSpawner_Gameplay>();
             if (dialog != null)
@@ -105,7 +129,7 @@ public class TaserManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     }
 
     // =========================
-    // LIGHTNING FX
+    // FX
     // =========================
     IEnumerator PlayLightningAnimation()
     {

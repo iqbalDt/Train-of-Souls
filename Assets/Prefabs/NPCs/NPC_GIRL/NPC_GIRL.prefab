@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: -6573968059106443193}
   - component: {fileID: 2945927449658991584}
   - component: {fileID: 2467248645433757056}
+  - component: {fileID: 1168229854431916414}
   m_Layer: 5
   m_Name: NPC_GIRL
   m_TagString: Untagged
@@ -145,27 +146,155 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topics:
-  - topicName: a
-    truthText: a
-    lieText: a
-    neutralText: a
+  - topicName: Pertengkaran di Rooftop Kampus
+    truthText: "\u201CHalo, Aku Nia.\u201D\r\n\u201CKamu lihat Cewe seumuran ku gak
+      lewat sini? \u201C\r\n\u201CNamanya Siri, Terakhir kali aku lihat dia itu ada
+      di atap Kampus di pinggir pagar, \u201C\r\n\u201CKeliatan nya dia mau lompat,
+      aku coba narik dia tapi dia panik dan ikut narik aku juga, \u201C\r\n\u201CKu
+      kira aku bakal mati bareng sama dia, tapi pas aku bangun aku ada di stasiun
+      ini, \u201C\r\n\u201CAku harap dia juga tidak apa apa.\u201D\r"
+    lieText: "\u201CHi, Aku Nia\u201D\r\n\u201CHmm? Pertengkaran di atap kampus?.\u201D\r\n\u201CEntah
+      lah, aku gak tau, aku gak pernah ke atap.\u201D\r\n\u201CAku di sini karena
+      terpleset di kamar mandi dan kepalaku terbentur dinding sampai berdarah.\u201D\r\n\u201CAku
+      menjerit kesakitan sekali tapi gak ada satu pun yang dengar.\u201D\r\n\u201CAneh
+      sekali padahal aku tahu kalo ada orang yang lagi ngomong ngomong di luar tadi.\u201D\r"
+    neutralText: "\u201CHalo, Aku Nia.\u201D\r\n\u201CPertengkaran di atap kampus?\u201D
+      \r\n\u201CAku ingat hari itu kacau sekali\u2026 \u201C\r\n\u201CAku dan Siri
+      memang ada urusan kecil sebelumnya.\u201D \r\n\u201CCuma ngomong doang sebentar
+      di atap terus aku pergi ke kelas.\u201D\r\n\u201CAku lupa ngomong apa.\u201D\r\n\u201CSudah
+      lama juga, aku lupa detailnya.\u201D\r"
     truthValue: 0
+    lieValue: 1
+    neutralValue: 1
+    truthEmotion: 2
+    lieEmotion: 3
+    neutralEmotion: 0
+    voiceProfile: {fileID: 0}
+    callerName: Cesya
+    truthTelephoneHint: "\u201CHalo..\u201D\r\n\u201CHm? Nia\u201D\r\n\u201CIya,
+      yang terjadi memang seperti apa yang dikatakan dia.\u201D\r\r"
+    lieTelephoneHint: "\u201CHmm? Pertengkaran di atap kampus? \r\n\u201COH! Yang
+      itu? \u201C\r\n\u201CHmm? Nia?\u201D\r\n\u201CTerakhir kali aku lihat dia sedang
+      berjalan berdua sama Siri keatap, \u201C\r\n\u201CGak tau mau ngapain. \u201C\r\n\u201CYang
+      jelas\u2026 suasananya kayak tegang, \u201C\r\n\u201CNia pun keliatan nya marah
+      banget, \u201C\r\n\u201CAku sih tadi mau sapa, tapi suasananya kayak gak enak
+      banget.\u201D\r\n\u201CAkhirnya aku hiraukan aja deh mereka dan langsung ke
+      kantin. \u201C\r\n\u201CSisanya aku gak tau apa yang terjadi.\u201D\r"
+    neutralTelephoneHint: "\u201CHmm? Pertengkaran di atap kampus? \r\n\u201COH!
+      Yang itu? \u201C\r\n\u201CHmm? Nia?\u201D\r\n\u201CTerakhir kali aku lihat
+      dia sedang berjalan berdua sama Siri keatap, \u201C\r\n\u201CGak tau mau ngapain.
+      \u201C\r\n\u201CYang jelas\u2026 suasananya kayak tegang, \u201C\r\n\u201CTapi
+      aku pernah dengar rumor.\u201D\r\n\u201CKalo Siri ngerebut pacarnya si Nia.\u201D\r\n\u201CHadeh
+      mahasiswa bukannya fokus belajar malah pacaran.\u201D\r"
+    reactionTruth: "\u201CHmm?\u201D\r\n\u201CKamu gak percaya kah sama aku?\u201D\r\n\u201CAku
+      sudah ngomong jujur loh.\u201D"
+    reactionLie: "\u201CHah!? \u201C\r\n\u201CAlat itu rusak! Aku gak bohong!\u201D\r\n\u201CKamu
+      jangan suka nuduh ya! \u201C\r\n\u201CPokoknya bukan aku yang salah!!\u201D\r"
+    reactionNeutral: "\u201CUgh oke fine.\u201D\r\n\u201CGua bertengkar sama Siri
+      di atap.\u201D\r\n\u201CGua gak sengaja dorong dia dari atap.\u201D\r\n\u201CSalah
+      sendiri kok dorong aku duluan.\u201D\r"
+    stunReactionText: "\u201CADUH! Sakit!! \u201C\r\n\u201CKenapa kamu tiba tiba
+      setrum aku?\u201D\r\n\u201CAku gak salah apa apa loh\u2026\u2026\u201D\r"
+  - topicName: Dompet Hilang di Perpustakaan Kampus
+    truthText: "\u201CHi, aku Nia.\u201D\r\n\u201CDompet hilang? Oh\u2026 itu hari
+      yang bikin aku malu banget.\u201D\r\n\u201CWaktu itu aku nemu dompet di pojok
+      rak buku lantai dua.\u201D\r\n\u201CAku buka sedikit cuma buat lihat identitasnya\u2026
+      aku mau balikin, sumpah.\u201D\r\n\u201CTapi saat aku turun ke meja administrasi,
+      tiba-tiba ada yang teriak \u2018Pencuri!\u2019.\u201D\r\n\u201CSemua orang
+      lihat aku kayak penjahat.\u201D\r\n\u201CAku cuma lagi berusaha balikin barang
+      orang, kok malah diperlakukan kayak kriminal.\u201D\r\n\u201CPada akhirnya
+      aku taruh di meja admin dan pergi.\u201D\r\n\u201CAku gak sempat kasih penjelasan
+      apa-apa.\u201D\r\n\u201CKeliatan nya dia mau lompat, aku coba narik dia tapi
+      dia panik dan ikut narik aku juga, \u201C\r\n\u201CKu kira aku bakal mati bareng
+      sama dia, tapi pas aku bangun aku ada di stasiun ini, \u201C\r\n\u201CAku harap
+      dia juga tidak apa apa.\u201D\r"
+    lieText: "\u201CHi, aku Nia.\u201D\r\n\u201CHmm? Dompet hilang?\u201D\r\n\u201CAku
+      gak tau apa-apa soal itu.\u201D\r\n\u201CAku bahkan gak ke perpustakaan hari
+      itu.\u201D\r\n\u201CAku sibuk di kelas\u2026 atau mungkin lagi nongkrong di
+      kantin, lupa.\u201D\r\n\u201CKenapa semua orang nunjuk aku sih?\u201D\r\n\u201CDompet
+      hilang kan sering terjadi?\u201D\r"
+    neutralText: "\u201CHi, aku Nia.\u201D\r\n\u201CDompet hilang?\u201D\r\n\u201CHmm\u2026
+      aku ingat ada keributan di perpustakaan, tapi aku cuma lewat.\u201D\r\n\u201CAku
+      memang sempat megang sesuatu di rak\u2026 tapi aku gak yakin itu dompet.\u201D\r\n\u201CHari
+      itu banyak banget kejadian, aku lupa detailnya.\u201D\r\n\u201CLagipula kenapa
+      kamu nanya ke aku? Banyak kok orang di sana.\u201D\r"
+    truthValue: 0
+    lieValue: 1
+    neutralValue: 1
+    truthEmotion: 1
+    lieEmotion: 2
+    neutralEmotion: 1
+    voiceProfile: {fileID: 0}
+    callerName: Cesya
+    truthTelephoneHint: "\u201COh\u2026 Nia ya?\r\n\u201CIya, aku ingat. Dia datang
+      ke meja kami sambil kelihatan gugup.\u201D\r\n\u201CDia gak ambil apa-apa kok.
+      Dia cuma naruh dompet itu lalu pergi tanpa bilang apa-apa.\u201D\r\n\u201CAku
+      rasa dia bukan pelakunya\u2026 tapi ya, suasana waktu itu memang kacau.\u201D\r\r"
+    lieTelephoneHint: "\u201CDompet hilang ya?\u201D\r\n\u201CYang aku ingat\u2026
+      ada cewek mirip Nia yang ngumpet di pojok rak sebelum kejadian.\u201D\r\n\u201CDia
+      kayak lagi buka dompet seseorang.\u201D\r\n\u201CTapi aku gak yakin seratus
+      persen\u2026\u201D\r\n\u201CKelihatannya memang mencurigakan sih.\u201D\r"
+    neutralTelephoneHint: "\u201CNia?\u201D\r\n\u201CIya, aku sempat lihat dia.\u201D\r\n\u201CDia
+      kayak lagi pegang sesuatu lalu buru-buru masukin ke tas\u2026\u201D\r\n\u201CTapi
+      aku gak yakin itu dompetnya atau bukan.\u201D\r\n\u201CKadang mataku suka salah
+      lihat.\u201D\r"
+    reactionTruth: "\u201CHah?\u201D\r\n\u201CKamu serius curiga aku bohong?\u201D\r\n\u201CAku
+      udah jujur dari awal\u2026\u201D\r\n\u201CYa ampun, aku niat baik malah dicurigain
+      begini\u2026\u201D\r"
+    reactionLie: "\u201CHah!?\r\n\u201CAlat itu pasti rusak!\u201D\r\n\u201CKamu
+      pikir aku maling gitu!?\u201D\r\n\u201CDasar penjaga norak! Aku gak ngaku apa
+      pun!\u201D\r"
+    reactionNeutral: "\u201CGila\u2026 masa aku jawab kayak gitu dianggap bohong?\u201D\r\n\u201CFine!
+      Aku pegang dompet itu!\u201D\r\n\u201CTapi bukan aku yang nyuri duluan!\u201D\r\n\u201CAku
+      cuma nemu! Terus orang lain lihat dan langsung nuduh!\u201D\r"
+    stunReactionText: "\u201CAAAH!! Sakit!\u201D\r\n\u201CKenapa kamu setrum aku!?\"\r\r"
+  - topicName: Insiden Minuman Beracun di Acara Kampus
+    truthText: "\u201CHalo\u2026 aku Nia.\u201D\r\n\u201CSoal insiden minuman itu\u2026
+      Iya, aku ada di sana.\u201D\r\n\u201CAku bantu panitia bagiin minuman ke mahasiswa
+      baru.\u201D\r\n\u201CSemuanya biasa aja sampai tiba-tiba tiga orang tumbang
+      barengan.\u201D\r\n\u201CTernyata ada botol yang terkontaminasi cairan pembersih.\u201D\r\n\u201CAku
+      panik banget\u2026 aku sendiri sampai muntah karena bau kimianya.\u201D\r\n\u201CAku
+      dipanggil polisi kampus buat dimintai keterangan.\u201D\r\n\u201CPadahal aku
+      cuma panitia biasa.\u201D\r\n\u201CAku gak tahu siapa yang ganti isi botol
+      itu.\u201D\r\n\u201CAku masih ngerasa takut setiap nginget kejadian itu.\u201D\r"
+    lieText: "\u201CHalo\u2026 aku Nia.\u201D\r\n\u201CSoal insiden minuman itu\u2026
+      Iya, aku ada di sana.\u201D\r\n\u201CHah? Minuman beracun?\r\n\u201CAku gak
+      terlibat kok.\u201D\r\n\u201CAku bahkan gak hadir di acara itu.\r\nAku lagi
+      sakit di kos.\r\nMana mungkin aku ikut bagi-bagi minuman.\u201D\r\n\u201COrang-orang
+      tuh suka aja nuduh tanpa bukti.\u201D\r"
+    neutralText: "\u201CHalo\u2026 aku Nia.\u201D\r\n\u201CInsiden minuman?\r\n\u201CHmm\u2026
+      ya aku dengar ada kekacauan waktu itu.\u201D\r\n\u201CAku kebetulan lewat area
+      acara\u2026 tapi aku gak terlalu perhatiin.\u201D\r\n\u201CBau kimianya memang
+      kuat, bikin aku pusing.\u201D\r\n\u201CMungkin aku lihat panitia panik, tapi
+      aku gak tahu detailnya.\u201D\r\n\u201CAku memang gampang lupa kalau lagi stres.\u201D\r"
+    truthValue: 1
     lieValue: 0
     neutralValue: 0
-    callerName: Unknown
-    truthTelephoneHint: 'a
-
-      berdasarkan riset dari pak presiden'
-    lieTelephoneHint: 'a
-
-      berdasarkan riset dari pak presiden'
-    neutralTelephoneHint: 'a
-
-      berdasarkan riset dari pak presiden'
-    reactionTruth: Tuh kan! Aku jujur!
-    reactionLie: H-Hah?! Aku ga bohong!
-    reactionNeutral: Hmm...
-    stunReactionText: '#$%@!&^#'
+    truthEmotion: 2
+    lieEmotion: 3
+    neutralEmotion: 0
+    voiceProfile: {fileID: 0}
+    callerName: Cesya
+    truthTelephoneHint: "\u201CNia?\"\r\n\u201CIya, dia panitia minuman.\u201D\r\n\u201CDari
+      yang aku lihat, dia gak ngapa-ngapain.\u201D\r\n\u201CDia justru yang pertama
+      kali teriak minta tolong waktu ada yang tumbang.\u201D\r\n\u201CTapi\u2026
+      ada rumor dia sempat berdebat sama panitia lain sebelumnya.\u201D\r"
+    lieTelephoneHint: "\u201CHm? Nia?\r\n\u201CEh\u2026 aku agak lupa yah.\u201D\r\n\u201CKayaknya
+      dia hadir deh.\u201D\r\n\u201CAku cuma lihat seseorang mirip dia di area minuman.\u201D\r\n\u201CTapi
+      aku gak yakin karena ramai banget.\u201D\r"
+    neutralTelephoneHint: "\u201CNia?\u201D\r\n\u201CIya, aku lihat dia lewat.\u201D\r\n\u201CDia
+      kelihatan bingung, tapi gak terlibat apa-apa kok.\u201D\r\n\u201CTapi ya\u2026
+      dia memang terlihat kayak mau nyari seseorang.\u201D\r\n\u201CAku gak yakin,
+      suasananya memang ribut waktu itu.\u201D\r"
+    reactionTruth: "\u201CEh?\u201D\r\n\u201CAlat itu bilang jujur kan?\u201D\r\n\u201CYa
+      ampun, udah tahu aku jujur\u2026 masih liat aku aneh gitu?\u201D\r"
+    reactionLie: "\u201CHah!?\u201D\r\n\u201CAlat itu pasti error!\u201D\r\n\u201CKenapa
+      sih semua orang selalu nyari alasan buat nyalahin aku?!\u201D\r\n\u201CAku
+      GAK bohong!!\u201D\r\r"
+    reactionNeutral: "\u201CHah!?\u201D\r\n\u201CGiliran aku diem sedikit langsung
+      dianggap bohong!?\u201D\r\n\u201COke, fine!\u201D\r\n\u201CAku memang lihat
+      lebih banyak dari yang aku bilang!\u201D\r\n\u201CTapi bukan berarti aku pelakunya!!\u201D\r"
+    stunReactionText: "\u201CAAAH!\"\r\n\"Kamu ngapain!?!\"\r\n\r\r\"Ya ampun sakitnyaaa!!\u201D"
   activeTopic:
     topicName: 
     truthText: 
@@ -174,6 +303,10 @@ MonoBehaviour:
     truthValue: 0
     lieValue: 0
     neutralValue: 0
+    truthEmotion: 0
+    lieEmotion: 3
+    neutralEmotion: 0
+    voiceProfile: {fileID: 0}
     callerName: Unknown
     truthTelephoneHint: 
     lieTelephoneHint: 
@@ -185,6 +318,8 @@ MonoBehaviour:
   bubblePrefab: {fileID: 5736675483342888346, guid: 84a37021de1c982408b3d65b56bd3210, type: 3}
   bubbleSpawnPoint: {fileID: 4428945694749587252}
   typeSpeed: 0.02
+  allowSkipTyping: 1
+  reactionHoldDuration: 1.8
 --- !u!114 &-6573968059106443193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,3 +368,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+--- !u!114 &1168229854431916414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4190291845773044640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02dc07a12b64a064f987e713a225d4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  neutralVoice: {fileID: 8300000, guid: ebe31ac6eb5c5a843ba84e9e8699157a, type: 3}
+  happyVoice: {fileID: 8300000, guid: 0fb9d46a4f9519447ad5bfe0c04dfa8c, type: 3}
+  sadVoice: {fileID: 8300000, guid: 42a88236ccb47b5498cb03c643e5a15c, type: 3}
+  madVoice: {fileID: 8300000, guid: 3776bbc2a41efe240a0c269b127ce9ed, type: 3}
+  lieDetectorTruthEmotion: 1
+  lieDetectorLieEmotion: 3
+  stunEmotion: 3
+  volume: 0.716
+  stopPreviousBeforePlay: 1

@@ -19,6 +19,10 @@ public class GameFlowController : MonoBehaviour
     public LieDetectorUI lieDetectorUI;
     public Button lieDetectorButton;
 
+    [Header("Train Bell Audio")]
+    public AudioSource bellSource;
+    public AudioClip trainBellClip;
+
     // ===== INTERNAL STATE =====
     private bool dialogFinishedThisNPC;
     private bool telephoneUsedThisNPC;
@@ -42,14 +46,12 @@ public class GameFlowController : MonoBehaviour
     // NPC FLOW
     // =========================
 
-    // === VERSI BARU (DIREKOMENDASIKAN) ===
     public void OnNPCReachedMiddle(NPC_Controller npc)
     {
         currentNPC = npc;
         ResetNPCState();
     }
 
-    // === BACKWARD COMPATIBILITY (FIX ERROR CS7036) ===
     public void OnNPCReachedMiddle()
     {
         var npc = FindFirstObjectByType<NPC_Controller>();
@@ -69,6 +71,14 @@ public class GameFlowController : MonoBehaviour
         telephoneManager?.ForceClose();
         lieDetectorUI?.ShowNeutral();
         ticketPrinter?.ResetPrinter();
+
+        // ✅ RESET ANIMATOR NPC (FIX HALUS TAPI PENTING)
+        if (currentNPC != null)
+        {
+            var anim = currentNPC.GetComponent<NPC_AnimatorController>();
+            if (anim != null)
+                anim.ResetAnimator();
+        }
     }
 
     public void OnDialogFinished()
@@ -114,7 +124,6 @@ public class GameFlowController : MonoBehaviour
         var state = dialog.GetNPCState();
         var anim = currentNPC.GetComponent<NPC_AnimatorController>();
 
-        // === UI INDICATOR ===
         if (lieDetectorUI != null)
         {
             switch (state)
@@ -131,10 +140,8 @@ public class GameFlowController : MonoBehaviour
             }
         }
 
-        // === NPC REACTION ===
         if (state == NPCState.Lie)
         {
-            // 🔥 AUTO MAD
             if (anim != null)
                 anim.ForceMadAndSpeak();
 
@@ -197,8 +204,16 @@ public class GameFlowController : MonoBehaviour
         var spawner = FindFirstObjectByType<NPC_Spawner>();
         if (spawner == null) yield break;
 
+        // 🚶 NPC keluar
         currentNPC.StartExitMovement();
         yield return new WaitForSeconds(1.2f);
+
+        // 🔔 Bel kereta
+        if (bellSource != null && trainBellClip != null)
+        {
+            bellSource.PlayOneShot(trainBellClip);
+            yield return new WaitForSeconds(trainBellClip.length);
+        }
 
         currentNPC = null;
         waitingForTicket = false;

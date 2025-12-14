@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: -9159404447021959188}
   - component: {fileID: 7366952338967082922}
   - component: {fileID: 7643068096117865369}
+  - component: {fileID: 1815746945172811312}
   m_Layer: 5
   m_Name: NPC_OLDMAN
   m_TagString: Untagged
@@ -145,21 +146,114 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topics:
-  - topicName: c
-    truthText: c
-    lieText: c
-    neutralText: c
-    truthValue: 0
-    lieValue: 0
+  - topicName: Membiarkan Kecelakaan Lalu Lintas
+    truthText: "\u201CHalo, Saya Hadi\u201D\r\n\u201CKecelakaan Lalu Lintas di jalan
+      Apel?\u201D\r\n \u201CJalan itu sepi waktu malam.\u201D\r\n\u201CSaya dengar
+      suara benturan keras.\u201D\r\n\u201CSaya berhenti sebentar, mesin masih nyala.\u201D\r\n\u201CAda
+      orang tergeletak di aspal.\u201D\r\n\u201CSaya lihat darah.\u201D\r\n\u201CSaya
+      takut.\u201D\r\n\u201CSaya pikir, \u2018kalau saya turun, saya ikut repot\u2019.\u201D\r\n\u201CSaya
+      jalan lagi.\u201D\r\n\u201CBesoknya saya dengar orang itu meninggal.\u201D\r"
+    lieText: "\u201CHalo, Saya Hadi\u201D\r\n\u201CKecelakaan Lalu Lintas di jalan
+      Apel?\u201D\r\n\u201CSaya tidak lewat jalan itu.\u201D\r\n\u201CSaya pulang
+      lebih awal.\u201D\r\n\u201CSaya tidak lihat kecelakaan.\u201D\r\n\u201CSaya
+      baru tahu dari berita.\u201D\r\n\u201CSaya tidak ada sangkut paut.\u201D\r"
+    neutralText: "\u201CHalo, Saya Hadi\u201D\r\n\u201CKecelakaan Lalu Lintas di
+      jalan Apel?\u201D\r\n\u201CSaya dengar tabrakan.\u201D\r\n\u201CSaya berhenti.\u201D\r\n\u201CSaya
+      panik.\u201D\r\n\u201CSaya telpon ambulans dari mobil.\u201D\r\n\u201CSaya
+      takut turun.\u201D\r\n\u201CSaya nunggu dari jauh.\u201D\r\n\u201CAmbulans
+      datang.\u201D\r\n\u201CSaya pergi setelah itu.\u201D\r"
+    truthValue: 1
+    lieValue: 1
     neutralValue: 0
-    callerName: Unknown
-    truthTelephoneHint: c
-    lieTelephoneHint: c
-    neutralTelephoneHint: c
-    reactionTruth: Tuh kan! Aku jujur!
-    reactionLie: H-Hah?! Aku ga bohong!
-    reactionNeutral: Hmm...
-    stunReactionText: '#$%@!&^#'
+    truthEmotion: 2
+    lieEmotion: 1
+    neutralEmotion: 2
+    voiceProfile: {fileID: 0}
+    callerName: Iqbal
+    truthTelephoneHint: "\u201CSaya ingat mobil itu berhenti sebentar.\u201D\r\n\u201CLampunya
+      nyala.\u201D\r\n\u201CLalu pergi lagi.\u201D\r\n\u201CPlatnya cocok.\u201D\r"
+    lieTelephoneHint: "\u201CPak Hadi bilang tidak lewat?\u201D\r\n\u201CCCTV SPBU
+      nangkap mobilnya lewat jam itu.\u201D\r\n\u201CDan berhenti sebentar.\u201D\r"
+    neutralTelephoneHint: "\u201CSaya cuma dengar ada yang nelpon ambulans.\u201D\r\n\u201CSaya
+      tidak tahu siapa.\u201D\r"
+    reactionTruth: "\u201CYa.\u201D\r\n\u201CItu yang saya lakukan.\u201D\r"
+    reactionLie: "\u201CAlat ini salah.\u201D"
+    reactionNeutral: "\u201C\u2026iya.\u201D\r\n\u201CSaya pergi.\u201D\r"
+    stunReactionText: "\u201CCukup.\u201D\r\n\u201CJangan.\u201D\r"
+  - topicName: Saksi Palsu demi Uang Ganti Rugi
+    truthText: "\u201CHalo, Saya Hadi.\u201D\r\n\u201CSaksi Palsu?\u201D\r\n\u201CMaksud
+      mu sidang itu?\u201D\r\n\u201CSidang itu cepat.\u201D\r\n\u201CSaya dipanggil
+      sebagai saksi.\u201D\r\n\u201CPengacara bilang cuma perlu cerita versi singkat.\u201D\r\n\u201CSaya
+      tahu siapa yang sebenarnya menerobos lampu.\u201D\r\n\u201CTapi perusahaan
+      janji ganti rugi buat cucu saya.\u201D\r\n\u201CSaya bilang saya \u2018kurang
+      lihat jelas\u2019.\u201D\r\n\u201CKalimat itu cukup buat mengubah putusan.\u201D\r\n\u201COrang
+      yang tidak salah jadi kena.\u201D\r\n\u201CSaya terima uangnya.\u201D\r"
+    lieText: "\u201CHalo, Saya Hadi.\u201D\r\n\u201CSaksi Palsu?\u201D\r\n\u201CMaksud
+      mu sidang itu?\u201D\r\n\u201CSaya bicara apa adanya.\u201D\r\n\u201CSaya tidak
+      terima apa pun.\u201D\r\n\u201CSaya memang tidak ingat.\u201D\r\n\u201CSaya
+      tidak paham hukum.\u201D\r\n\u201CKalau putusan salah, itu bukan urusan saya.\u201D\r"
+    neutralText: "\u201CHalo, Saya Hadi.\u201D\r\n\u201CSaksi Palsu?\u201D\r\n\u201CMaksud
+      mu sidang itu?\u201D\r\n\u201C\u2026\u201D \r\n\u201CSaya ragu.\u201D\r\n\u201CMereka
+      tawari bantuan biaya.\u201D\r\n\u201CSaya minta waktu.\u201D\r\n\u201CSaya
+      akhirnya bilang saya tidak yakin.\u201D\r\n\u201CSaya tidak mau tanda tangan
+      apa pun.\u201D\r\n\u201CSaya pulang tanpa uang.\u201D\r\n\u201CPutusan tetap
+      jalan.\u201D\r"
+    truthValue: 1
+    lieValue: 1
+    neutralValue: 0
+    truthEmotion: 1
+    lieEmotion: 2
+    neutralEmotion: 2
+    voiceProfile: {fileID: 0}
+    callerName: Iqbal
+    truthTelephoneHint: "\u201CPak Hadi sempat konsultasi ke saya soal berkas.\u201D\r\n\u201CDia
+      tanya apakah \u2018tidak ingat jelas\u2019 bisa dipakai.\u201D\r\n\u201CItu
+      jelas mengubah arah kasus.\u201D\r"
+    lieTelephoneHint: "\u201CAda transfer ke rekening Pak Hadi setelah sidang.\u201D\r\n\u201CNominalnya
+      cocok dengan kompensasi saksi.\u201D\r\n\u201CItu tercatat.\u201D\r"
+    neutralTelephoneHint: "\u201CSaya cuma dengar saksi tua ragu-ragu.\u201D\r\n\u201CDetailnya
+      saya tidak tahu.\u201D\r"
+    reactionTruth: "\u201C\u2026iya.\u201D\r\n\u201CSaya pilih aman buat keluarga.\u201D\r"
+    reactionLie: "\u201CIni mesin menekan orang tua.\u201D"
+    reactionNeutral: "\u201CYa.\u201D\r\n\u201CSaya mundur.\u201D\r"
+    stunReactionText: "\u201CBerhenti.\u201D\r\n\u201CSudah.\u201D\r"
+  - topicName: Menutup Kebenaran Kebakaran Pabrik
+    truthText: "\u201CHalo, Saya Hadi.\u201D\r\n\u201CKebakaran Pabrik?\u201D\r\n\u201CApi
+      itu cepat sekali.\u201D\r\n\u201CSaya ada di pos malam itu.\u201D\r\n\u201CSaya
+      lihat kabel di gudang sudah terkelupas.\u201D\r\n\u201CSaya tahu itu bahaya.\u201D\r\n\u201CSaya
+      bilang ke mandor, tapi tidak dicatat.\u201D\r\n\u201CMalamnya pabrik terbakar.\u201D\r\n\u201CSeorang
+      buruh dituduh lalai.\u201D\r\n\u201CSaya dipanggil buat diminta diam.\u201D\r\n\u201CMereka
+      kasih uang pensiun tambahan.\u201D\r\n\u201CSaya terima.\u201D\r\n\u201CSaya
+      bilang tidak lihat apa-apa.\u201D\r"
+    lieText: "\u201CHalo, Saya Hadi.\u201D\r\n\u201CKebakaran Pabrik?\u201D\r\n\u201CSaya
+      tidak jaga malam itu.\u201D\r\n\u201CSaya tidak tahu soal kabel.\u201D\r\n\u201CKebakaran
+      murni kelalaian buruh.\u201D\r\n\u201CSaya tidak terima uang apa pun.\u201D\r\n\u201CSaya
+      cuma warga biasa.\u201D\r"
+    neutralText: "\u201CHalo, Saya Hadi.\u201D\r\n\u201CKebakaran Pabrik?\u201D\r\n\u201CSaya
+      lihat kabel rusak.\u201D\r\n\u201CSaya lapor tertulis.\u201D\r\n\u201CSaya
+      simpan salinannya.\u201D\r\n\u201CSetelah kebakaran, saya diminta ubah keterangan.\u201D\r\n\u201CSaya
+      tolak.\u201D\r\n\u201CSaya tidak terima uang.\u201D\r\n\u201CSaya dipensiunkan
+      lebih cepat.\u201D\r\n\u201CTapi saya tidur lebih tenang.\u201D\r"
+    truthValue: 1
+    lieValue: 1
+    neutralValue: 0
+    truthEmotion: 2
+    lieEmotion: 2
+    neutralEmotion: 2
+    voiceProfile: {fileID: 0}
+    callerName: Iqbal
+    truthTelephoneHint: "\u201CPak Hadi jaga malam itu.\u201D\r\n\u201CDia lapor
+      soal kabel rusak sore harinya.\u201D\r\n\u201CSetelah kebakaran, laporannya
+      hilang.\u201D\r"
+    lieTelephoneHint: "\u201CData shift jaga menunjukkan nama Pak Hadi.\u201D\r\n\u201CAda
+      transfer dana pensiun tambahan sebulan setelah kejadian.\u201D\r\n\u201CItu
+      tidak rutin.\u201D\r"
+    neutralTelephoneHint: "\u201CSaya cuma dengar ada laporan awal.\u201D\r\n\u201CDetailnya
+      saya tidak tahu.\u201D\r"
+    reactionTruth: "\u201C\u2026iya.\u201D\r\n\u201CSaya pilih diam.\u201D"
+    reactionLie: "\u201CMesin ini memojokkan.\u201D"
+    reactionNeutral: "\u201CYa.\u201D\r\n\u201CItu pilihan saya.\u201D\r"
+    stunReactionText: "\u201CCukup.\u201D\r\n\u201CJangan sentuh saya.\u201D\r\r"
   activeTopic:
     topicName: 
     truthText: 
@@ -168,6 +262,10 @@ MonoBehaviour:
     truthValue: 0
     lieValue: 0
     neutralValue: 0
+    truthEmotion: 0
+    lieEmotion: 3
+    neutralEmotion: 0
+    voiceProfile: {fileID: 0}
     callerName: Unknown
     truthTelephoneHint: 
     lieTelephoneHint: 
@@ -179,6 +277,8 @@ MonoBehaviour:
   bubblePrefab: {fileID: 5736675483342888346, guid: 84a37021de1c982408b3d65b56bd3210, type: 3}
   bubbleSpawnPoint: {fileID: 4428945694749587252}
   typeSpeed: 0.02
+  allowSkipTyping: 1
+  reactionHoldDuration: 1.8
 --- !u!114 &-9159404447021959188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,3 +327,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+--- !u!114 &1815746945172811312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4190291845773044640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02dc07a12b64a064f987e713a225d4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  neutralVoice: {fileID: 8300000, guid: 0b4046267d2c516419c395988433f3a9, type: 3}
+  happyVoice: {fileID: 8300000, guid: 8fedaa17224b30e46b08c7f55337524d, type: 3}
+  sadVoice: {fileID: 8300000, guid: 0b4046267d2c516419c395988433f3a9, type: 3}
+  madVoice: {fileID: 8300000, guid: 8fedaa17224b30e46b08c7f55337524d, type: 3}
+  lieDetectorTruthEmotion: 1
+  lieDetectorLieEmotion: 3
+  stunEmotion: 3
+  volume: 0.6
+  stopPreviousBeforePlay: 1

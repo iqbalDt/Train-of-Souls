@@ -19,25 +19,37 @@ public class TicketPrinter : MonoBehaviour
     public float printDuration = 0.4f;
     public float flyDuration = 0.5f;
 
+    [Header("Audio")]
+    public AudioSource audioSource;          // 🔊 ONE SOURCE
+    public AudioClip clickHeavenClip;        // klik tombol surga
+    public AudioClip clickHellClip;          // klik tombol neraka
+    public AudioClip printMachineClip;       // suara mesin
+    public AudioClip ticketClickClip;        // klik tiket
+    public AudioClip ticketFlyClip;          // tiket terbang
+
     private RectTransform currentTicket;
     private GameFlowController gameFlow;
 
     void Awake()
     {
-        gameFlow = FindObjectOfType<GameFlowController>();
+        gameFlow = FindFirstObjectByType<GameFlowController>();
 
         ticketHeaven.gameObject.SetActive(false);
         ticketHell.gameObject.SetActive(false);
     }
 
-    // === DIPANGGIL DARI GameFlowController ===
+    // =========================
+    // DIPANGGIL DARI GameFlowController
+    // =========================
     public void PrintHeavenTicket()
     {
+        PlayOneShot(clickHeavenClip);
         PrintTicket(ticketHeaven);
     }
 
     public void PrintHellTicket()
     {
+        PlayOneShot(clickHellClip);
         PrintTicket(ticketHell);
     }
 
@@ -53,6 +65,9 @@ public class TicketPrinter : MonoBehaviour
         Button btn = ticket.GetComponent<Button>();
         btn.onClick.RemoveAllListeners();
         btn.onClick.AddListener(OnTicketClicked);
+
+        // 🔊 suara mesin cetak
+        PlayOneShot(printMachineClip);
 
         StartCoroutine(PrintAnimation());
     }
@@ -73,11 +88,17 @@ public class TicketPrinter : MonoBehaviour
 
     void OnTicketClicked()
     {
+        // 🔊 klik tiket
+        PlayOneShot(ticketClickClip);
+
         StartCoroutine(FlyToNPC());
     }
 
     IEnumerator FlyToNPC()
     {
+        // 🔊 tiket terbang
+        PlayOneShot(ticketFlyClip);
+
         Vector3 start = currentTicket.position;
         Vector3 end = npcTargetPoint.position;
 
@@ -103,5 +124,14 @@ public class TicketPrinter : MonoBehaviour
 
         ticketHeaven.gameObject.SetActive(false);
         ticketHell.gameObject.SetActive(false);
+    }
+
+    // =========================
+    // AUDIO HELPER
+    // =========================
+    void PlayOneShot(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+            audioSource.PlayOneShot(clip);
     }
 }
