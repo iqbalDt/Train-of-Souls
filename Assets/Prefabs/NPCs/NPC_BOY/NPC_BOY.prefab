@@ -184,9 +184,8 @@ MonoBehaviour:
     reactionLie: "\u201CHah!?\u201D\r\n\u201CSerius lu percaya mesin dibanding gue?\u201D\r\n\u201CSial
       bener\u2026\u201D\r"
     reactionNeutral: "\u201CAh, oke lah\u2026\u201D\r\n\u201CIya, gue lihat sedikit
-      lebih jelas dari yang gue omongin.\u201D\r\n\u201CTapi itu bukan urusan gue,
-      makanya gue gak mau ikut ribut.\u201D\r\n\u201CKadang diem itu lebih aman,
-      ngerti?\u201D\r"
+      lebih jelas dari yang gue omongin.\u201D\r\n\u201CTapi itu bukan urusan gue\"\r\n\u201CKadang
+      diem itu lebih aman, ngerti?\u201D\r"
     stunReactionText: "\u201CWOI\u2014AARGH!!\u201D\r\n\u201CNgapain sih!? Gue udah
       bilang apa adanya!\u201D\r"
   - topicName: Laptop Hilang di Ruang Praktikum
@@ -235,8 +234,8 @@ MonoBehaviour:
     reactionLie: "\u201CHah!? Serius?\r\nLu percaya mesin kayak gitu?\r\nGue gak
       suka dikibulin gini.\u201D\r\r"
     reactionNeutral: "\u201CYaelah\u2026\u201D\r\n\u201CLu maksa banget ya.\u201D\r\n\u201CFine\u2026
-      gue sempat nengok ke dalam lab sebentar.\u201D\r\n\u201CCuma ngecek ada orang
-      apa enggak.\u201D\r\n\u201CTapi gue gak liat apa-apa, beneran.\u201D\r"
+      gue sempat nengok ke dalam lab sebentar.\u201D\r\r\n\u201CTapi gue gak liat
+      apa-apa, beneran.\u201D\r"
     stunReactionText: "\u201CAARGH\u2014!!\u201D\r\n\u201CBRO!! Sakit anjir!!\u201D\r\n\u201CGue
       ngomong apa adanya!\u201D\r"
   - topicName: Insiden Motor Tabrak Pembatas Jalan di Parkiran Kampus
@@ -356,7 +355,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c7d84624546814a8cbc5b13b3c67f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
 --- !u!114 &7850743363270159502
 MonoBehaviour:
   m_ObjectHideFlags: 0

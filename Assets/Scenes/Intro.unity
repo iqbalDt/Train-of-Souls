@@ -1289,7 +1289,7 @@ MonoBehaviour:
   bubblePrefab: {fileID: 5736675483342888346, guid: d5fba6b5ddadac745a37369aa2309a1d, type: 3}
   bubbleSpawnPoint: {fileID: 980719545}
   dialogLines:
-  - '"Selamat Datang di Train of Souils!"'
+  - '"Selamat Datang di Train of Souls!"'
   - '"Anda Telah Terpilih Untuk Menghakimi Berbagai Jiwa Manusia!"'
   - '"Terdapat Beberapa Alat yang Dapat Anda Gunakan."'
   - '"Pertama, Stun Gun."'

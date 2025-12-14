@@ -47,7 +47,6 @@ public class NPC_AnimatorController : MonoBehaviour
         ApplyAnimator();
     }
 
-    // Dipakai oleh Lie Detector (hasil LIE)
     public void ForceMadAndSpeak()
     {
         currentEmotion = NPCEmotion.Mad;
@@ -55,18 +54,14 @@ public class NPC_AnimatorController : MonoBehaviour
         ApplyAnimator();
     }
 
-    // Dipakai saat stun ditekan (MULAI STUN)
     public void PlayStunEffect()
     {
-        // Saat kesetrum: NPC berhenti bicara
         isSpeaking = false;
         ApplyAnimator();
     }
 
-    // Dipakai setelah stun SELESAI
     public void EndStun()
     {
-        // Setelah stun → NPC jadi Mad (tapi tidak bicara dulu)
         currentEmotion = NPCEmotion.Mad;
         isSpeaking = false;
         ApplyAnimator();
@@ -78,18 +73,15 @@ public class NPC_AnimatorController : MonoBehaviour
 
     void ApplyAnimator()
     {
-        if (animator == null)
-            return;
-
-        if (animator.runtimeAnimatorController == null)
-            return;
+        if (animator == null) return;
+        if (animator.runtimeAnimatorController == null) return;
 
         animator.SetInteger("Emotion", (int)currentEmotion);
         animator.SetBool("IsSpeaking", isSpeaking);
     }
 
     // =========================
-    // RESET (NPC BARU)
+    // RESET
     // =========================
 
     public void ResetAnimator()

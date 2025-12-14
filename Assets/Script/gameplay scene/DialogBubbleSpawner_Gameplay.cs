@@ -20,7 +20,6 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
     public bool allowSkipTyping = true;
 
     [Header("Reaction Settings")]
-    [Tooltip("Waktu diam setelah reaction selesai diketik")]
     public float reactionHoldDuration = 1.8f;
 
     private string[] activeTextLines;
@@ -42,8 +41,6 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
     private NPCVoiceProfile voiceProfile;
 
     // =========================
-    // PUBLIC READ
-    // =========================
 
     public bool IsDialogFinished() => dialogFinished;
     public DialogTopic GetActiveTopic() => activeTopic;
@@ -53,8 +50,12 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
     void Awake()
     {
         npcAnimator = GetComponent<NPC_AnimatorController>();
-        voiceProfile = GetComponent<NPCVoiceProfile>(); // ✅ ambil dari NPC prefab yang sama
+        voiceProfile = GetComponent<NPCVoiceProfile>();
     }
+
+    // =========================
+    // SETUP TOPIC
+    // =========================
 
     public void AssignTopic(NPCState state)
     {
@@ -63,42 +64,41 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
 
         activeTopic = topics[Random.Range(0, topics.Length)];
 
-        string rawText = "";
-
         switch (state)
         {
             case NPCState.Truth:
-                rawText = activeTopic.truthText;
+                activeTextLines = activeTopic.truthText.Split('\n');
                 activeValue = activeTopic.truthValue;
                 activeEmotion = activeTopic.truthEmotion;
                 break;
 
             case NPCState.Lie:
-                rawText = activeTopic.lieText;
+                activeTextLines = activeTopic.lieText.Split('\n');
                 activeValue = activeTopic.lieValue;
                 activeEmotion = activeTopic.lieEmotion;
                 break;
 
             default:
-                rawText = activeTopic.neutralText;
+                activeTextLines = activeTopic.neutralText.Split('\n');
                 activeValue = activeTopic.neutralValue;
                 activeEmotion = activeTopic.neutralEmotion;
                 break;
         }
 
-        activeTextLines = rawText.Split('\n');
         lineIndex = 0;
     }
+
+    // =========================
+    // START DIALOG
+    // =========================
 
     public void AllowTalking()
     {
         allowTalking = true;
 
-        // 🎭 set emosi di awal dialog
         if (npcAnimator != null)
             npcAnimator.SetEmotion(activeEmotion);
 
-        // 🔊 MAIN DIALOG VOICE: berdasarkan emosi dialog (Happy/Sad/Mad/Neutral)
         if (voiceProfile != null)
             voiceProfile.PlayByEmotion(activeEmotion);
 
@@ -133,13 +133,7 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
         if (bubbleObj != null)
             Destroy(bubbleObj);
 
-        bubbleObj = Instantiate(
-            bubblePrefab,
-            bubbleSpawnPoint.position,
-            Quaternion.identity,
-            transform
-        );
-
+        bubbleObj = Instantiate(bubblePrefab, bubbleSpawnPoint.position, Quaternion.identity, transform);
         bubbleTMP = bubbleObj.GetComponentInChildren<TMP_Text>();
 
         StopAllCoroutines();
@@ -153,6 +147,7 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
         isTyping = true;
         skipTyping = false;
 
+        // 🔥 KUNCI: Speaking ON sepanjang typewriter
         if (npcAnimator != null)
             npcAnimator.SetSpeaking(true);
 
@@ -173,6 +168,9 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
 
         bubbleTMP.text = text;
         isTyping = false;
+
+        // 🔥 BIARKAN TALK STATE HIDUP SEBENTAR
+        yield return new WaitForSeconds(0.15f);
 
         if (npcAnimator != null)
             npcAnimator.SetSpeaking(false);
@@ -198,7 +196,6 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
 
     public void ShowStunReaction(string text)
     {
-        // 🔊 STUN selalu pakai emosi marah (default Mad, bisa kamu ubah di Inspector)
         if (voiceProfile != null)
             voiceProfile.PlayStunVoice();
 
@@ -207,7 +204,6 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
 
     public void ShowDetectorReaction(string text)
     {
-        // 🔊 LieDetector: Truth -> Happy, Lie -> Mad (default), bisa kamu ubah mapping-nya di Inspector
         if (voiceProfile != null)
             voiceProfile.PlayLieDetectorVoice(currentState);
 
@@ -222,21 +218,13 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
         if (bubbleObj != null)
             Destroy(bubbleObj);
 
-        bubbleObj = Instantiate(
-            bubblePrefab,
-            bubbleSpawnPoint.position,
-            Quaternion.identity,
-            transform
-        );
-
+        bubbleObj = Instantiate(bubblePrefab, bubbleSpawnPoint.position, Quaternion.identity, transform);
         bubbleTMP = bubbleObj.GetComponentInChildren<TMP_Text>();
         bubbleTMP.text = "";
 
-        // NPC bicara
         if (npcAnimator != null)
             npcAnimator.SetSpeaking(true);
 
-        // TYPEWRITER reaction (tidak bisa diskip)
         foreach (char c in text)
         {
             bubbleTMP.text += c;
@@ -247,6 +235,9 @@ public class DialogBubbleSpawner_Gameplay : MonoBehaviour
 
             yield return new WaitForSeconds(typeSpeed);
         }
+
+        // 🔥 TAHAN TALK SEDIKIT
+        yield return new WaitForSeconds(0.15f);
 
         if (npcAnimator != null)
             npcAnimator.SetSpeaking(false);
