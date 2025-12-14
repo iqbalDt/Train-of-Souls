@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogBubbleSpawner : MonoBehaviour
 {
@@ -18,10 +19,14 @@ public class DialogBubbleSpawner : MonoBehaviour
 
     [Header("Intro Animation")]
     public string fromLeftTrigger = "FromLeft";
-    public float fromLeftDuration = 1.2f; // durasi animasi dari kiri
+    public float fromLeftDuration = 1.2f;
 
     [Header("Typing Settings")]
     public float typingSpeed = 0.02f;
+
+    [Header("Scene Transition")]
+    public string nextSceneName = "MainMenu"; // 🔥 NAMA SCENE TUJUAN
+    public float sceneDelay = 4f;             // 🔥 DELAY 4 DETIK
 
     private bool canStartDialog = false;
     private int index = -1;
@@ -34,11 +39,9 @@ public class DialogBubbleSpawner : MonoBehaviour
 
     void Start()
     {
-        // MAININ ANIM MUNCUL DARI KIRI
         if (bossAnimator != null && !string.IsNullOrEmpty(fromLeftTrigger))
             bossAnimator.SetTrigger(fromLeftTrigger);
 
-        // Aktifkan dialog setelah anim dari kiri selesai
         StartCoroutine(EnableDialogAfterDelay(fromLeftDuration));
     }
 
@@ -56,13 +59,9 @@ public class DialogBubbleSpawner : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isTyping)
-            {
                 FinishTypingImmediate();
-            }
             else
-            {
                 ShowNextBubble();
-            }
         }
     }
 
@@ -76,22 +75,23 @@ public class DialogBubbleSpawner : MonoBehaviour
             return;
         }
 
-        // Hapus bubble sebelumnya
         if (currentBubble != null)
             Destroy(currentBubble);
 
-        // Trigger anim Boss Talk
         if (bossAnimator != null && !string.IsNullOrEmpty(talkTrigger))
             bossAnimator.SetTrigger(talkTrigger);
 
-        // Spawn bubble baru
         if (bubblePrefab != null && bubbleSpawnPoint != null)
         {
-            currentBubble = Instantiate(bubblePrefab, bubbleSpawnPoint.position, Quaternion.identity, transform);
+            currentBubble = Instantiate(
+                bubblePrefab,
+                bubbleSpawnPoint.position,
+                Quaternion.identity,
+                transform
+            );
             currentText = currentBubble.GetComponentInChildren<TMP_Text>();
         }
 
-        // Start typing
         if (typingCoroutine != null)
             StopCoroutine(typingCoroutine);
 
@@ -101,6 +101,7 @@ public class DialogBubbleSpawner : MonoBehaviour
     IEnumerator TypeText(string fullText)
     {
         isTyping = true;
+
         if (currentText == null)
         {
             yield return new WaitForSeconds(typingSpeed * fullText.Length);
@@ -119,7 +120,6 @@ public class DialogBubbleSpawner : MonoBehaviour
 
         isTyping = false;
 
-        // Trigger anim Boss StopTalk setelah selesai mengetik
         if (bossAnimator != null && !string.IsNullOrEmpty(stopTalkTrigger))
             bossAnimator.SetTrigger(stopTalkTrigger);
 
@@ -157,5 +157,16 @@ public class DialogBubbleSpawner : MonoBehaviour
             if (!string.IsNullOrEmpty(moveTrigger))
                 bossAnimator.SetTrigger(moveTrigger);
         }
+
+        // 🔥 TRANSISI KE MAIN MENU
+        StartCoroutine(GoToNextScene());
+    }
+
+    IEnumerator GoToNextScene()
+    {
+        yield return new WaitForSeconds(sceneDelay);
+
+        if (!string.IsNullOrEmpty(nextSceneName))
+            SceneManager.LoadScene(nextSceneName);
     }
 }

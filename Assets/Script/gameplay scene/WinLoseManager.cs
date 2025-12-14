@@ -1,40 +1,50 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class WinLoseManager : MonoBehaviour
 {
     public static WinLoseManager Instance;
 
-    [Header("Gameplay Tracking")]
-    public int wrongChoices = 0;       // jumlah salah player
-    public int totalNPC = 5;           // jumlah NPC yang harus dinilai
-    private int judgedNPC = 0;         // NPC yang sudah dipilihkan surga/neraka
-
     [Header("Ending Tiers")]
-    public EndingTier[] endingTiers;   // daftar ending berdasarkan skor
+    public EndingTier[] endingTiers;
+
+    [Header("Ending Delay")]
+    public float endingDelay = 4f; // ✅ DELAY 4 DETIK
+
+    // ================= INTERNAL =================
+    private int wrongChoices = 0;
+    private int judgedNPC = 0;
+    private NPC_Spawner spawner;
+    private bool endingTriggered = false;
 
     [System.Serializable]
     public class EndingTier
     {
         public int minWrong;
         public int maxWrong;
-        public string sceneName;       // nama scene ending untuk range ini
+        public string sceneName;
     }
 
     void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else
         {
             Destroy(gameObject);
-            return;
         }
-
-        DontDestroyOnLoad(gameObject);
     }
 
-    // Dipanggil setiap kali player membuat pilihan
+    void Start()
+    {
+        spawner = FindFirstObjectByType<NPC_Spawner>();
+    }
+
+    // ================= CALLED FROM GAMEFLOW =================
     public void RegisterChoice(bool correct)
     {
         judgedNPC++;
@@ -42,38 +52,56 @@ public class WinLoseManager : MonoBehaviour
         if (!correct)
         {
             wrongChoices++;
-            Debug.Log("SALAH! Total salah sekarang: " + wrongChoices);
+            Debug.Log("❌ SALAH | Total Salah: " + wrongChoices);
+        }
+        else
+        {
+            Debug.Log("✅ BENAR");
         }
 
-        // Jika semua NPC sudah dinilai → tentukan ending
-        if (judgedNPC >= totalNPC)
+        // ✅ JIKA SEMUA NPC SUDAH DINILAI
+        if (!endingTriggered && spawner != null && judgedNPC >= spawner.maxNPCPerDay)
         {
-            TriggerEnding();
+            endingTriggered = true;
+            StartCoroutine(TriggerEndingAfterDelay());
         }
     }
 
-    // Cek ending berdasarkan tiers
-    void TriggerEnding()
+    // ================= ENDING =================
+    IEnumerator TriggerEndingAfterDelay()
     {
+        Debug.Log("🎬 SEMUA NPC SELESAI — HITUNG ENDING");
+        yield return new WaitForSeconds(endingDelay);
+
+        EndingTier selectedTier = null;
+
         foreach (var tier in endingTiers)
         {
             if (wrongChoices >= tier.minWrong &&
                 wrongChoices <= tier.maxWrong)
             {
-                Debug.Log("ENDING TRIGGERED → " + tier.sceneName);
-                SceneManager.LoadScene(tier.sceneName);
-                return;
+                // pilih tier PALING SPESIFIK
+                if (selectedTier == null || tier.minWrong > selectedTier.minWrong)
+                    selectedTier = tier;
             }
         }
 
-        // fallback jika tidak ada tier yang cocok
-        Debug.LogWarning("No ending tier matched! Add default tier.");
+        if (selectedTier != null)
+        {
+            Debug.Log($"🏁 ENDING DIPILIH: {selectedTier.sceneName} | Salah: {wrongChoices}");
+            SceneManager.LoadScene(selectedTier.sceneName);
+        }
+        else
+        {
+            Debug.LogError("❌ TIDAK ADA ENDING YANG COCOK — CEK ENDING TIERS!");
+        }
     }
 
-    // Opsional reset jika ingin restart game
+    // ================= OPTIONAL RESET =================
     public void ResetData()
     {
         wrongChoices = 0;
         judgedNPC = 0;
+        endingTriggered = false;
     }
 }

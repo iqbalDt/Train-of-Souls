@@ -23,6 +23,9 @@ public class GameFlowController : MonoBehaviour
     public AudioSource bellSource;
     public AudioClip trainBellClip;
 
+    [Header("Ending Delay")]
+    public float endingDelay = 3f; // ✅ delay sebelum masuk ending
+
     // ===== INTERNAL STATE =====
     private bool dialogFinishedThisNPC;
     private bool telephoneUsedThisNPC;
@@ -72,7 +75,6 @@ public class GameFlowController : MonoBehaviour
         lieDetectorUI?.ShowNeutral();
         ticketPrinter?.ResetPrinter();
 
-        // ✅ RESET ANIMATOR NPC (FIX HALUS TAPI PENTING)
         if (currentNPC != null)
         {
             var anim = currentNPC.GetComponent<NPC_AnimatorController>();
@@ -158,6 +160,25 @@ public class GameFlowController : MonoBehaviour
     }
 
     // =========================
+    // SCORE HELPER (✅ INTI FIX)
+    // =========================
+
+    bool IsChoiceCorrect(bool chooseHeaven)
+    {
+        if (currentNPC == null) return false;
+
+        var dialog = currentNPC.GetComponent<DialogBubbleSpawner_Gameplay>();
+        if (dialog == null) return false;
+
+        var moral = dialog.GetCurrentMoralValue();
+
+        if (chooseHeaven)
+            return moral == DialogBubbleSpawner_Gameplay.MoralValue.Heaven;
+        else
+            return moral == DialogBubbleSpawner_Gameplay.MoralValue.Hell;
+    }
+
+    // =========================
     // PLAYER DECISION
     // =========================
 
@@ -172,6 +193,10 @@ public class GameFlowController : MonoBehaviour
         SetLieDetectorInteractable(false);
         telephoneManager?.ForceClose();
 
+        // ✅ REGISTER SCORE (tanpa ubah WinLoseManager)
+        bool correct = IsChoiceCorrect(true);
+        WinLoseManager.Instance.RegisterChoice(correct);
+
         ticketPrinter?.PrintHeavenTicket();
     }
 
@@ -185,6 +210,10 @@ public class GameFlowController : MonoBehaviour
         SetTelephoneInteractable(false);
         SetLieDetectorInteractable(false);
         telephoneManager?.ForceClose();
+
+        // ✅ REGISTER SCORE
+        bool correct = IsChoiceCorrect(false);
+        WinLoseManager.Instance.RegisterChoice(correct);
 
         ticketPrinter?.PrintHellTicket();
     }
@@ -204,11 +233,9 @@ public class GameFlowController : MonoBehaviour
         var spawner = FindFirstObjectByType<NPC_Spawner>();
         if (spawner == null) yield break;
 
-        // 🚶 NPC keluar
         currentNPC.StartExitMovement();
         yield return new WaitForSeconds(1.2f);
 
-        // 🔔 Bel kereta
         if (bellSource != null && trainBellClip != null)
         {
             bellSource.PlayOneShot(trainBellClip);
@@ -217,6 +244,14 @@ public class GameFlowController : MonoBehaviour
 
         currentNPC = null;
         waitingForTicket = false;
+
+        // ✅ JIKA SUDAH 5 NPC → JANGAN SPAWN LAGI
+        // biarkan WinLoseManager pindah scene; kita kasih delay biar dramatis
+        if (spawner.HasReachedLimit())
+        {
+            yield return new WaitForSeconds(endingDelay);
+            yield break;
+        }
 
         spawner.SpawnNextNPC();
     }
