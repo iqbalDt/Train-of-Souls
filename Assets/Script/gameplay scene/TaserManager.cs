@@ -9,17 +9,22 @@ public class TaserManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     public Image iconNormal;
     public Image iconActive;
 
-    [Header("Lightning Window Effect")]
-    public Image windowLightning;            // Image renderer di Canvas
-    public Sprite[] lightningFrames;         // Kumpulan sprite animasi
-    public float frameRate = 0.05f;          // Kecepatan animasi
+    [Header("Lightning Effect")]
+    public Image windowLightning;
+    public Sprite[] lightningFrames;
+    public float frameRate = 0.05f;
 
-    private Coroutine lightningRoutine;
+    [Header("Stun Settings")]
+    public NPC_Spawner spawner;
+    public int maxStunUses = 2;
+
+    private int stunUses = 0;
     private bool isHolding = false;
+    private Coroutine lightningRoutine;
+    private GameObject stunnedNPC;
 
     void Start()
     {
-        // Pastikan lightning hidden di awal
         if (windowLightning != null)
         {
             Color c = windowLightning.color;
@@ -27,72 +32,105 @@ public class TaserManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
             windowLightning.color = c;
         }
 
-        iconActive.gameObject.SetActive(false);
+        if (iconActive != null)
+            iconActive.gameObject.SetActive(false);
     }
 
-    // =============================
-    //  ON PRESS
-    // =============================
+    // =========================
+    // POINTER DOWN (START STUN)
+    // =========================
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (stunUses >= maxStunUses) return;
+        if (spawner == null || spawner.currentNPC == null) return;
+
+        stunUses++;
         isHolding = true;
 
-        iconActive.gameObject.SetActive(true);
+        if (iconActive != null)
+            iconActive.gameObject.SetActive(true);
 
-        // Mulai animasi petir
         if (lightningRoutine != null)
             StopCoroutine(lightningRoutine);
 
         lightningRoutine = StartCoroutine(PlayLightningAnimation());
+
+        stunnedNPC = spawner.currentNPC;
+
+        var anim = stunnedNPC.GetComponent<NPC_AnimatorController>();
+        if (anim != null)
+            anim.PlayStunEffect();
+
+        if (stunUses >= maxStunUses && iconNormal != null)
+        {
+            Color c = iconNormal.color;
+            c.a = 0.4f;
+            iconNormal.color = c;
+        }
     }
 
-    // =============================
-    //  ON RELEASE
-    // =============================
+    // =========================
+    // POINTER UP (END STUN)
+    // =========================
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (!isHolding) return;
+
         isHolding = false;
 
-        iconActive.gameObject.SetActive(false);
+        if (iconActive != null)
+            iconActive.gameObject.SetActive(false);
 
-        // Stop animasi
         if (lightningRoutine != null)
             StopCoroutine(lightningRoutine);
 
         StartCoroutine(FadeOutLightning());
+
+        if (stunnedNPC != null)
+        {
+            var anim = stunnedNPC.GetComponent<NPC_AnimatorController>();
+            if (anim != null)
+                anim.EndStun(); // 🔥 AUTO MAD
+
+            var dialog = stunnedNPC.GetComponent<DialogBubbleSpawner_Gameplay>();
+            if (dialog != null)
+            {
+                var topic = dialog.GetActiveTopic();
+                if (topic != null && !string.IsNullOrEmpty(topic.stunReactionText))
+                    dialog.ShowStunReaction(topic.stunReactionText);
+            }
+
+            stunnedNPC = null;
+        }
     }
 
-    // =============================
-    //  SPRITE ANIMATION (Loop)
-    // =============================
+    // =========================
+    // LIGHTNING FX
+    // =========================
     IEnumerator PlayLightningAnimation()
     {
-        int index = 0;
+        if (windowLightning == null || lightningFrames == null || lightningFrames.Length == 0)
+            yield break;
 
-        // Buat lightning kelihatan
+        int index = 0;
         Color c = windowLightning.color;
         c.a = 1f;
         windowLightning.color = c;
 
         while (isHolding)
         {
-            // Ganti sprite frame
             windowLightning.sprite = lightningFrames[index];
-
-            // Loop index
             index = (index + 1) % lightningFrames.Length;
-
             yield return new WaitForSeconds(frameRate);
         }
     }
 
-    // =============================
-    //  FADE OUT AFTER RELEASE
-    // =============================
     IEnumerator FadeOutLightning()
     {
-        Color c = windowLightning.color;
+        if (windowLightning == null)
+            yield break;
 
+        Color c = windowLightning.color;
         while (c.a > 0f)
         {
             c.a -= Time.deltaTime * 4f;

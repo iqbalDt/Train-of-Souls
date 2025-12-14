@@ -1,132 +1,167 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 using System.Collections;
 
 public class TelephoneManager : MonoBehaviour
 {
-    public static TelephoneManager Instance;
+    [Header("UI References")]
+    public GameObject telephoneUI;      // TelephoneManager/TelephoneUI
+    public TMP_Text telephoneText;      // TelephoneManager/TelephoneUI/Text (TMP)
 
-    [Header("Telephone Subtitle UI")]
-    public GameObject telephoneSubtitlePrefab;
-    public RectTransform subtitleSpawnArea;
+    [Header("Style")]
+    public int callerFontSize = 28;
+    public int dialogFontSize = 24;
+    public Color textColor = Color.white;
 
-    [Header("Telephone Button")]
-    public Button telephoneButton;
-
-    [Header("Typewriter Settings")]
+    [Header("Timing")]
+    public float callingDuration = 2f;
     public float typeSpeed = 0.02f;
 
-    private GameObject subtitleObj;
-    private TMP_Text subtitleTMP;
-
-    private bool isTyping = false;
-    private bool hasUsedTelephoneForCurrentNPC = false;
-
+    // ===== INTERNAL =====
     private string[] lines;
-    private int lineIndex = 0;
+    private int lineIndex;
+    private bool isActive;
+    private bool isTyping;
+    private string callerHeader;
 
     void Awake()
     {
-        Instance = this;
-    }
-
-    // RESET PER NPC — TELEPON HARUS NONAKTIF DI AWAL
-    public void ResetTelephoneForNewNPC()
-    {
-        hasUsedTelephoneForCurrentNPC = false;
-        ClearSubtitle();
-
-        if (telephoneButton != null)
-            telephoneButton.interactable = false;
-    }
-
-    public void CallRelative(GameObject npcObj)
-    {
-        if (hasUsedTelephoneForCurrentNPC)
-            return;
-
-        hasUsedTelephoneForCurrentNPC = true;
-
-        var dialog = npcObj.GetComponent<DialogBubbleSpawner_Gameplay>();
-        var topic  = dialog.GetActiveTopic();
-        var state  = dialog.GetNPCState();
-
-        string fullHint = GetHint(topic, state);
-
-        lines = fullHint.Split('\n');
-        lineIndex = 0;
-
-        ShowSubtitle();
-
-        telephoneButton.interactable = false;
-    }
-
-    string GetHint(DialogTopic topic, NPCState state)
-    {
-        switch (state)
-        {
-            case NPCState.Truth:  return topic.truthTelephoneHint;
-            case NPCState.Lie:    return topic.lieTelephoneHint;
-            default:              return topic.neutralTelephoneHint;
-        }
+        if (telephoneUI != null)
+            telephoneUI.SetActive(false);
     }
 
     void Update()
     {
-        if (subtitleObj != null && !isTyping && Input.GetKeyDown(KeyCode.Space))
+        if (!isActive) return;
+        if (isTyping) return;
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             ShowNextLine();
         }
     }
 
-    void ShowSubtitle()
-    {
-        if (subtitleObj != null)
-            Destroy(subtitleObj);
+    // =========================
+    // PUBLIC API
+    // =========================
 
-        subtitleObj = Instantiate(telephoneSubtitlePrefab, subtitleSpawnArea);
-        subtitleTMP = subtitleObj.GetComponentInChildren<TMP_Text>();
+    public void StartTelephone(GameObject npc)
+    {
+        if (isActive) return;
+        if (npc == null) return;
+
+        var dialog = npc.GetComponent<DialogBubbleSpawner_Gameplay>();
+        if (dialog == null) return;
+
+        var topic = dialog.GetActiveTopic();
+        if (topic == null) return;
+
+        string callerName = string.IsNullOrEmpty(topic.callerName)
+            ? "UNKNOWN"
+            : topic.callerName.ToUpper();
+
+        string rawText = dialog.GetNPCState() switch
+        {
+            NPCState.Truth => topic.truthTelephoneHint,
+            NPCState.Lie => topic.lieTelephoneHint,
+            _ => topic.neutralTelephoneHint
+        };
+
+        if (string.IsNullOrEmpty(rawText)) return;
+
+        lines = rawText.Split('\n');
+        lineIndex = 0;
+
+        // ✅ TMP-CORRECT TAG (INI FIX UTAMA)
+        callerHeader = $"<size={callerFontSize}><b>[{callerName}]</b></size>";
 
         StopAllCoroutines();
-        StartCoroutine(TypeLine(lines[lineIndex]));
+        StartCoroutine(CallSequence());
+    }
 
-        lineIndex++;
+    // =========================
+    // CORE FLOW
+    // =========================
+
+    IEnumerator CallSequence()
+    {
+        isActive = true;
+        telephoneUI.SetActive(true);
+
+        telephoneText.color = textColor;
+        telephoneText.fontSize = dialogFontSize;
+        telephoneText.textWrappingMode = TextWrappingModes.Normal;
+        telephoneText.richText = true;
+
+        telephoneText.text = "Calling...";
+        yield return new WaitForSeconds(callingDuration);
+
+        ShowNextLine();
     }
 
     void ShowNextLine()
     {
-        if (lineIndex >= lines.Length)
+        if (lines == null || lineIndex >= lines.Length)
         {
-            ClearSubtitle();
+            EndTelephone();
             return;
         }
 
         StopAllCoroutines();
         StartCoroutine(TypeLine(lines[lineIndex]));
-
         lineIndex++;
     }
 
-    IEnumerator TypeLine(string text)
+    IEnumerator TypeLine(string line)
     {
         isTyping = true;
-        subtitleTMP.text = "";
 
-        foreach (char c in text)
+        string current = "";
+
+        foreach (char c in line)
         {
-            subtitleTMP.text += c;
+            current += c;
+            telephoneText.text = callerHeader + "\n" + current;
             yield return new WaitForSeconds(typeSpeed);
         }
 
         isTyping = false;
     }
 
-    public void ClearSubtitle()
+    void EndTelephone()
     {
-        if (subtitleObj != null)
-            Destroy(subtitleObj);
+        StopAllCoroutines();
 
-        subtitleObj = null;
+        isActive = false;
+        isTyping = false;
+
+        telephoneUI.SetActive(false);
+        telephoneText.text = "";
+
+        lines = null;
+        lineIndex = 0;
+    }
+
+    // Dipanggil saat NPC ganti (safety)
+    public void ForceClose()
+    {
+        StopAllCoroutines();
+
+        isActive = false;
+        isTyping = false;
+
+        if (telephoneUI != null)
+            telephoneUI.SetActive(false);
+
+        if (telephoneText != null)
+            telephoneText.text = "";
+
+        lines = null;
+        lineIndex = 0;
+    }
+
+    public bool IsTelephoneActive()
+    {
+        return isActive;
     }
 }

@@ -5,18 +5,34 @@ public class DialogTopic
 {
     public string topicName;
 
-    [Header("=== TRUTH VERSION ===")]
-    [TextArea(3,10)] public string truthText;
+    [Header("=== MAIN DIALOG TEXT ===")]
+    [TextArea] public string truthText;
+    [TextArea] public string lieText;
+    [TextArea] public string neutralText;
+
+    [Header("=== MORAL VALUE ===")]
     public DialogBubbleSpawner_Gameplay.MoralValue truthValue;
-    [TextArea(3,10)] public string truthTelephoneHint;
-
-    [Header("=== LIE VERSION ===")]
-    [TextArea(3,10)] public string lieText;
     public DialogBubbleSpawner_Gameplay.MoralValue lieValue;
-    [TextArea(3,10)] public string lieTelephoneHint;
-
-    [Header("=== NEUTRAL VERSION ===")]
-    [TextArea(3,10)] public string neutralText;
     public DialogBubbleSpawner_Gameplay.MoralValue neutralValue;
-    [TextArea(3,10)] public string neutralTelephoneHint;
+
+    [Header("=== NPC EMOTION WHILE SPEAKING ===")]
+    public NPCEmotion truthEmotion = NPCEmotion.Neutral;
+    public NPCEmotion lieEmotion = NPCEmotion.Mad;
+    public NPCEmotion neutralEmotion = NPCEmotion.Neutral;
+
+    [Header("=== TELEPHONE CALLER ===")]
+    public string callerName = "Unknown";
+
+    [Header("=== TELEPHONE HINTS ===")]
+    [TextArea] public string truthTelephoneHint;
+    [TextArea] public string lieTelephoneHint;
+    [TextArea] public string neutralTelephoneHint;
+
+    [Header("=== REACTION TO LIE DETECTOR ===")]
+    [TextArea] public string reactionTruth = "Tuh kan! Aku jujur!";
+    [TextArea] public string reactionLie = "H-Hah?! Aku ga bohong!";
+    [TextArea] public string reactionNeutral = "Hmm...";
+
+    [Header("=== REACTION TO TASER ===")]
+    [TextArea] public string stunReactionText = "#$%@!&^#";
 }
