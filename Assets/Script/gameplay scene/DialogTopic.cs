@@ -20,6 +20,9 @@ public class DialogTopic
     public NPCEmotion lieEmotion = NPCEmotion.Mad;
     public NPCEmotion neutralEmotion = NPCEmotion.Neutral;
 
+    [Header("=== NPC VOICE PROFILE ===")]
+    public NPCVoiceProfile voiceProfile;
+
     [Header("=== TELEPHONE CALLER ===")]
     public string callerName = "Unknown";
 

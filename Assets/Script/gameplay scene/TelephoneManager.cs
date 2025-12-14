@@ -5,8 +5,8 @@ using System.Collections;
 public class TelephoneManager : MonoBehaviour
 {
     [Header("UI References")]
-    public GameObject telephoneUI;      // TelephoneManager/TelephoneUI
-    public TMP_Text telephoneText;      // TelephoneManager/TelephoneUI/Text (TMP)
+    public GameObject telephoneUI;
+    public TMP_Text telephoneText;
 
     [Header("Style")]
     public int callerFontSize = 28;
@@ -17,12 +17,18 @@ public class TelephoneManager : MonoBehaviour
     public float callingDuration = 2f;
     public float typeSpeed = 0.02f;
 
+    [Header("Audio")]
+    public AudioSource ringingSource;   // LOOP
+    public AudioSource oneShotSource;   // ONESHOT
+    public AudioClip disconnectClip;
+
     // ===== INTERNAL =====
     private string[] lines;
     private int lineIndex;
     private bool isActive;
     private bool isTyping;
     private string callerHeader;
+    private Coroutine currentRoutine;
 
     void Awake()
     {
@@ -56,10 +62,6 @@ public class TelephoneManager : MonoBehaviour
         var topic = dialog.GetActiveTopic();
         if (topic == null) return;
 
-        string callerName = string.IsNullOrEmpty(topic.callerName)
-            ? "UNKNOWN"
-            : topic.callerName.ToUpper();
-
         string rawText = dialog.GetNPCState() switch
         {
             NPCState.Truth => topic.truthTelephoneHint,
@@ -72,56 +74,61 @@ public class TelephoneManager : MonoBehaviour
         lines = rawText.Split('\n');
         lineIndex = 0;
 
-        // ✅ TMP-CORRECT TAG (INI FIX UTAMA)
+        string callerName = string.IsNullOrEmpty(topic.callerName)
+            ? "UNKNOWN"
+            : topic.callerName.ToUpper();
+
         callerHeader = $"<size={callerFontSize}><b>[{callerName}]</b></size>";
-
-        StopAllCoroutines();
-        StartCoroutine(CallSequence());
-    }
-
-    // =========================
-    // CORE FLOW
-    // =========================
-
-    IEnumerator CallSequence()
-    {
-        isActive = true;
-        telephoneUI.SetActive(true);
 
         telephoneText.color = textColor;
         telephoneText.fontSize = dialogFontSize;
-        telephoneText.textWrappingMode = TextWrappingModes.Normal;
         telephoneText.richText = true;
 
+        telephoneUI.SetActive(true);
+        isActive = true;
+
+        // 🔊 START RINGING
+        if (ringingSource != null && !ringingSource.isPlaying)
+            ringingSource.Play();
+
+        currentRoutine = StartCoroutine(CallingRoutine());
+    }
+
+    IEnumerator CallingRoutine()
+    {
         telephoneText.text = "Calling...";
         yield return new WaitForSeconds(callingDuration);
 
+        StopRinging();
         ShowNextLine();
     }
 
     void ShowNextLine()
     {
+        // 🔇 PASTIKAN RINGING MATI JIKA PLAYER SKIP
+        StopRinging();
+
         if (lines == null || lineIndex >= lines.Length)
         {
             EndTelephone();
             return;
         }
 
-        StopAllCoroutines();
-        StartCoroutine(TypeLine(lines[lineIndex]));
+        if (currentRoutine != null)
+            StopCoroutine(currentRoutine);
+
+        currentRoutine = StartCoroutine(TypeLine(lines[lineIndex]));
         lineIndex++;
     }
 
     IEnumerator TypeLine(string line)
     {
         isTyping = true;
-
-        string current = "";
+        telephoneText.text = callerHeader + "\n";
 
         foreach (char c in line)
         {
-            current += c;
-            telephoneText.text = callerHeader + "\n" + current;
+            telephoneText.text += c;
             yield return new WaitForSeconds(typeSpeed);
         }
 
@@ -130,22 +137,34 @@ public class TelephoneManager : MonoBehaviour
 
     void EndTelephone()
     {
-        StopAllCoroutines();
+        if (currentRoutine != null)
+            StopCoroutine(currentRoutine);
 
         isActive = false;
         isTyping = false;
 
-        telephoneUI.SetActive(false);
-        telephoneText.text = "";
+        StopRinging();
+
+        // 📵 DISCONNECT
+        if (oneShotSource != null && disconnectClip != null)
+            oneShotSource.PlayOneShot(disconnectClip);
+
+        if (telephoneUI != null)
+            telephoneUI.SetActive(false);
+
+        if (telephoneText != null)
+            telephoneText.text = "";
 
         lines = null;
         lineIndex = 0;
     }
 
-    // Dipanggil saat NPC ganti (safety)
     public void ForceClose()
     {
-        StopAllCoroutines();
+        if (currentRoutine != null)
+            StopCoroutine(currentRoutine);
+
+        StopRinging();
 
         isActive = false;
         isTyping = false;
@@ -160,8 +179,9 @@ public class TelephoneManager : MonoBehaviour
         lineIndex = 0;
     }
 
-    public bool IsTelephoneActive()
+    void StopRinging()
     {
-        return isActive;
+        if (ringingSource != null && ringingSource.isPlaying)
+            ringingSource.Stop();
     }
 }

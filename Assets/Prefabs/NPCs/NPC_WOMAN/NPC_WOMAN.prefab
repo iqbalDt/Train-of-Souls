@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 3537848497767012106}
   - component: {fileID: 3962664820722497724}
   - component: {fileID: 3717086573911926168}
+  - component: {fileID: -3990562608264939370}
   m_Layer: 5
   m_Name: NPC_WOMAN
   m_TagString: Untagged
@@ -145,21 +146,131 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topics:
-  - topicName: e
-    truthText: e
-    lieText: e
-    neutralText: e
+  - topicName: Insiden Tulisan Fitnah di Papan Pengumuman Kampus
+    truthText: "\u201CNama gua Kirana.\u201D\r\n\u201CSoal insiden kertas fitnah
+      itu\u2026 gua inget jelas.\u201D\r\n\u201CGua bukan yang nempelin kertas itu.\u201D\r\n\u201CGua
+      cuma nemu kertas itu udah nempel waktu gua lewat.\u201D\r\n\u201CIsi tulisannya
+      parah banget, nyerang salah satu dosen kami.\u201D\r\n\u201CGua langsung cabut
+      kertas itu dan lapor ke bagian akademik.\u201D\r\n\u201CAldric sempat lewat
+      juga, tapi dia gak lihat apa-apa.\u201D\r\n\u201CRaga cuma nanya kenapa gua
+      keliatan kesel.\u201D\r\n\u201CGua gak nuduh siapa pun, gua cuma tau itu bukan
+      ulah gua.\u201D\r"
+    lieText: "\u201CNama gua Kirana.\u201D\r\n\u201CInsiden papan itu? Gua cuma lewat.\u201D\r\n\u201CGua
+      gak nyentuh apa-apa.\u201D\r\n\u201CGua bahkan gak lihat ada kertas aneh.\u201D\r\n\u201CKalo
+      ada fitnah, ya itu bukan urusan gua.\u201D\r\n\u201CMungkin mahasiswa iseng.\u201D\r\n\u201CGua
+      gak ada hubungan sama itu.\u201D\r"
+    neutralText: "\u201CNama gua Kirana.\u201D\r\n\u201CInsiden papan fitnah itu\u2026
+      gua gak terlalu yakin detailnya.\u201D\r\n\u201CGua lewat sekilas, liat ada
+      tempelan aneh.\u201D\r\n\u201CTapi gua lagi buru-buru, jadi gua gak cek isi
+      tulisannya.\u201D\r\n\u201CAldric ada di belakang gua, tapi dia juga keliatan
+      gak peduli.\u201D\r\n\u201CRaga cuma nanya kenapa banyak orang bisik-bisik.\u201D\r\n\u201CGua
+      gak tau siapa yang nempelin, dan gua gak mau asal nuduh.\u201D\r"
     truthValue: 0
-    lieValue: 0
+    lieValue: 1
     neutralValue: 0
-    callerName: Unknown
-    truthTelephoneHint: e
-    lieTelephoneHint: e
-    neutralTelephoneHint: e
-    reactionTruth: Tuh kan! Aku jujur!
-    reactionLie: H-Hah?! Aku ga bohong!
-    reactionNeutral: Hmm...
-    stunReactionText: '#$%@!&^#'
+    truthEmotion: 1
+    lieEmotion: 2
+    neutralEmotion: 2
+    voiceProfile: {fileID: 0}
+    callerName: Renita
+    truthTelephoneHint: "\u201CIya, Kirana yang lapor duluan ke kami.\u201D\r\n\u201CKertas
+      itu udah ada di papan sebelum dia datang.\u201D\r\n\u201CDia malah yang nyuruh
+      kami periksa rekaman CCTV.\u201D\r"
+    lieTelephoneHint: "\u201CKirana bilang dia gak lihat kertas itu?\u201D\r\n\u201CAneh,
+      soalnya kami punya laporan dari Aldric.\u201D\r\n\u201CDia bilang Kirana lagi
+      megang kertas itu sambil ngomel-ngomel.\u201D\r"
+    neutralTelephoneHint: "\u201CHmmm\u2026 aku cuma ingat papan itu rame-rame.\u201D\r\n\u201CMungkin
+      ada kertas, mungkin enggak.\u201D\r\n\u201CAku juga lagi pusing waktu itu.\u201D\r"
+    reactionTruth: "\u201CYa, itu bener. Gua gak punya alasan buat bohong.\u201D"
+    reactionLie: "\u201CHah!? Ini alat kenapa sih!?\u201D\r\n\u201CSerius hasilnya
+      merah!?\u201D\r"
+    reactionNeutral: "\u201C\u2026ya, itu lebih tepat.\u201D"
+    stunReactionText: "\u201CAARGH! Sakit, sumpah!\u201D\r\n\u201CLu serius nyetrum
+      orang yang udah jujur!?\u201D\r\n\u201CAku gak mau nambah apa-apa lagi!\u201D\r"
+  - topicName: Kesalahan Input Nilai Mahasiswa di Sistem Kampus
+    truthText: "\u201CNama gua Kirana.\u201D\r\n\u201CSoal kesalahan input nilai
+      itu, gua yang masukin datanya hari itu.\u201D\r\n\u201CTapi kesalahan itu bukan
+      karena gua.\u201D\r\n\u201CSistem kampus lagi error waktu gua submit file.\u201D\r\n\u201CNilai
+      satu mahasiswa berubah jadi nol padahal nilai aslinya B.\u201D\r\n\u201CGua
+      langsung lapor ke dosen pengampu begitu liat anomali itu.\u201D\r\n\u201CRaga
+      sempat bantu ngecek file mentahnya.\u201D\r\n\u201CAldric bilang server kampus
+      memang lagi maintenance.\u201D\r\n\u201CGua gak nutupin apa pun, itu murni
+      error sistem.\u201D\r"
+    lieText: "\u201CNama gua Kirana.\u201D\r\n\u201CKesalahan nilai itu bukan dari
+      gua.\u201D\r\n\u201CGua gak sentuh file apa pun selain buat ngecek.\u201D\r\n\u201CMungkin
+      mahasiswa itu salah kumpulin tugas.\u201D\r\n\u201CBisa juga dosennya salah
+      kasih nilai.\u201D\r\n\u201CAku cuma lewat dan lihat sistemnya kebuka.\u201D\r\n\u201CGua
+      gak ada kaitan sama perubahan nilai itu.\u201D\r"
+    neutralText: "\u201CNama gua Kirana.\u201D\r\n\u201CKesalahan nilai itu\u2026
+      gua kurang yakin asalnya.\u201D\r\n\u201CHari itu sistem kampus lambat banget.\u201D\r\n\u201CAku
+      upload beberapa file untuk dosen.\u201D\r\n\u201CTerus tiba-tiba nilai satu
+      mahasiswa jadi nol.\u201D\r\n\u201CAku gak tau itu karena sistem atau human
+      error.\u201D\r\n\u201CAldric bilang server memang suka ngelag.\u201D\r\n\u201CRaga
+      nyaranin cek ulang file mentahan, tapi aku lagi dikejar deadline.\u201D\r"
+    truthValue: 0
+    lieValue: 1
+    neutralValue: 0
+    truthEmotion: 2
+    lieEmotion: 1
+    neutralEmotion: 3
+    voiceProfile: {fileID: 0}
+    callerName: Renita
+    truthTelephoneHint: "\u201CIya, Kirana langsung lapor ke kami soal nilai berubah.\u201D\r\n\u201CTanggal
+      itu memang ada masalah sinkronisasi database.\u201D\r\n\u201CKesalahan ada
+      di server, bukan di operator.\u201D\r"
+    lieTelephoneHint: "\u201CKirana bilang dia cuma lewat?\u201D\r\n\u201CAneh, karena
+      log sistem nunjukin akun Kirana yang update file nilai.\u201D\r\n\u201CWaktunya
+      pas banget sama kejadian nilai berubah.\u201D\r"
+    neutralTelephoneHint: "\u201CErr\u2026 aku cuma inget sistemnya loading terus.\u201D\r\n\u201CMungkin
+      file korup, mungkin enggak.\u201D\r\n\u201CAku gak paham yang mana.\u201D\r"
+    reactionTruth: "\u201CYa, memang itu faktanya.\u201D"
+    reactionLie: "\u201CHah!? Ini alat drama banget\u2026\u201D\r\n\u201CSerius bilang
+      gua bohong!?\u201D\r"
+    reactionNeutral: "\u201CYa\u2026 itu lebih jujur.\u201D"
+    stunReactionText: "\u201CAARGH!\u201D\r\n\u201CAku gak bakal ngaku!\u201D\r\n\u201CItu
+      bukan salah aku titik!\u201D\r"
+  - topicName: Konflik Dana Acara yang Tidak Transparan
+    truthText: "\u201CNama gua Kirana.\u201D\r\n\u201CSoal dana acara itu\u2026 ya,
+      itu memang kacau.\u201D\r\n\u201CGua yang pegang catatan keuangannya.\u201D\r\n\u201CAda
+      satu pengeluaran yang kebablasan masuk tanpa nota.\u201D\r\n\u201CTapi itu
+      bukan karena gua korupsi atau apa.\u201D\r\n\u201CAldric minta gua beliin dekorasi
+      tambahan mendadak.\u201D\r\n\u201CToko itu gak kasih struk karena pembeliannya
+      dadakan dan tokonya mau tutup.\u201D\r\n\u201CGua tetap catat nominalnya sesuai
+      permintaan Aldric.\u201D\r\n\u201CRaga juga tau karena dia ikut angkut barangnya.\u201D\r\n\u201CAku
+      gak sembunyiin apa pun, cuma notanya memang gak ada.\u201D\r"
+    lieText: "\u201CNama gua Kirana.\u201D\r\n\u201CSoal dana hilang itu bukan urusan
+      aku.\u201D\r\n\u201CAku gak pegang uangnya hari itu.\u201D\r\n\u201CMungkin
+      Aldric yang lupa catat.\u201D\r\n\u201CAtau Raga salah hitung.\u201D\r\n\u201CAku
+      cuma hadir rapat, bukan divisi keuangan.\u201D\r\n\u201CAku gak tau apa-apa
+      soal pengeluaran tanpa nota.\u201D\r"
+    neutralText: "\u201CNama gua Kirana.\u201D\r\n\u201CSoal dana yang tidak transparan
+      itu\u2026 aku kurang yakin sumber pastinya.\u201D\r\n\u201CYang aku tau, hari
+      itu hectic banget.\u201D\r\n\u201CAldric minta tambahan dekor.\u201D\r\n\u201CRaga
+      bolak-balik angkut barang.\u201D\r\n\u201CCatatan keuangannya numpuk karena
+      aku juga urus konsumsi.\u201D\r\n\u201CAku mungkin kelewat nyatat satu transaksi,
+      tapi aku gak yakin itu penyebab kekacauan.\u201D\r"
+    truthValue: 0
+    lieValue: 1
+    neutralValue: 0
+    truthEmotion: 3
+    lieEmotion: 1
+    neutralEmotion: 2
+    voiceProfile: {fileID: 0}
+    callerName: Renita
+    truthTelephoneHint: "\u201CIya, benar. Dekorasi tambahan itu dibeli sebelum toko
+      tutup.\u201D\r\n\u201CKirana udah minta struk, tapi tokonya udah matiin mesin
+      kasir.\u201D\r\n\u201CPengeluaran itu memang nyata.\u201D\r"
+    lieTelephoneHint: "\u201CKirana bilang dia gak pegang uang?\u201D\r\n\u201CAneh,
+      karena rekapan event nunjukin nama Kirana sebagai pemegang kas hari itu.\u201D\r\n\u201CKami
+      juga lihat dia ambil uang operasional buat dekor.\u201D\r"
+    neutralTelephoneHint: "\u201CErr\u2026 aku cuma ingat banyak uang keluar masuk.\u201D\r\n\u201CMungkin
+      ada nota, mungkin enggak.\u201D\r\n\u201CAku gak ingat sama sekali.\u201D\r"
+    reactionTruth: "\u201CYa, itu benar. Aku gak punya motif buruk.\u201D"
+    reactionLie: "\u201CHah!? Ini alat kenapa sih!?\u201D\r\n\u201CKenapa hasilnya
+      merah!?\u201D\r"
+    reactionNeutral: "\u201CYa\u2026 itu lebih sesuai kenyataan.\u201D"
+    stunReactionText: "\u201CAARGH! Serius!?\u201D\r\n\u201CAku udah jujur!\u201D\r\n\u201CAku
+      gak mau jelasin ulang!\u201D\r"
   activeTopic:
     topicName: 
     truthText: 
@@ -168,6 +279,10 @@ MonoBehaviour:
     truthValue: 0
     lieValue: 0
     neutralValue: 0
+    truthEmotion: 0
+    lieEmotion: 3
+    neutralEmotion: 0
+    voiceProfile: {fileID: 0}
     callerName: Unknown
     truthTelephoneHint: 
     lieTelephoneHint: 
@@ -179,6 +294,8 @@ MonoBehaviour:
   bubblePrefab: {fileID: 5736675483342888346, guid: 84a37021de1c982408b3d65b56bd3210, type: 3}
   bubbleSpawnPoint: {fileID: 4428945694749587252}
   typeSpeed: 0.02
+  allowSkipTyping: 1
+  reactionHoldDuration: 1.8
 --- !u!114 &3537848497767012106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,3 +344,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+--- !u!114 &-3990562608264939370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4190291845773044640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02dc07a12b64a064f987e713a225d4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  neutralVoice: {fileID: 8300000, guid: 42a88236ccb47b5498cb03c643e5a15c, type: 3}
+  happyVoice: {fileID: 8300000, guid: 8153f32fc28914148930fa31f5154db2, type: 3}
+  sadVoice: {fileID: 8300000, guid: 8153f32fc28914148930fa31f5154db2, type: 3}
+  madVoice: {fileID: 8300000, guid: 3776bbc2a41efe240a0c269b127ce9ed, type: 3}
+  lieDetectorTruthEmotion: 1
+  lieDetectorLieEmotion: 3
+  stunEmotion: 3
+  volume: 0.8
+  stopPreviousBeforePlay: 1

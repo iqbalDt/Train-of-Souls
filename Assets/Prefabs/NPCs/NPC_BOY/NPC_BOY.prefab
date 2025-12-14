@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: -5429056928232008951}
   - component: {fileID: -8096441073129150739}
   - component: {fileID: 5412228254813159798}
+  - component: {fileID: 7850743363270159502}
   m_Layer: 5
   m_Name: NPC_BOY
   m_TagString: Untagged
@@ -145,36 +146,144 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topics:
-  - topicName: tewsst
-    truthText: turht
-    lieText: lie
-    neutralText: neutral
+  - topicName: Perkelahian di Lorong Kampus
+    truthText: "\u201CNama gue Raga.\u201D\r\n\u201CSoal ribut-ribut di lorong itu\u2026
+      gue emang ada di sana.\u201D\r\n\u201CGue cuma pengen ambil charger yang ketinggalan.\u201D\r\n\u201CTiba-tiba
+      dua orang cowok mulai berantem gara-gara utang.\u201D\r\n\u201CGue isengnya
+      malah misahin, padahal badan gue kalah gede.\u201D\r\n\u201CAkhirnya gue ikut
+      kebanting.\u201D\r\n\u201CGue sempat lihat Nia lewat juga, tapi dia cuma lewat
+      doang.\u201D\r\n\u201CDia bukan bagian dari ribut itu.\u201D\r\n\u201CGue cuma
+      sial karena ada di tempat yang salah.\u201D\r"
+    lieText: "\u201CNama gue Raga.\u201D\n\u201CSoal ribut-ribut di lorong itu\"\r\n\u201CGak
+      ada hubungannya sama gua.\u201D\r\n\u201CGue waktu itu di kantin, lagi makan
+      mie ayam.\u201D\r\n\u201CNgapain juga gue ikut urusan orang ribut?\u201D\r\n\u201CCapek
+      sendiri lah.\u201D\r"
+    neutralText: "\u201CNama gue Raga.\u201D\r\n \u201CGue lewat lorong itu bentar
+      doang.\u201D\r\n\u201CRibut di lorong?\u201D\r\n\u201CGak ada hubungannya sama
+      gua.\u201D\r\n\u201CDenger ribut, tapi gue gak liat awalnya gimana.\u201D\r\n\u201CGue
+      buru-buru ke kelas karena telat, jadi gue gak sempet mikir banyak.\u201D\r\n\u201CKayaknya
+      gue lihat seseorang jatuh, tapi\u2026 ya gue gak yakin.\u201D\r\n\u201CRibut
+      di kampus kan sering. Gue males ikut campur.\u201D\r"
     truthValue: 0
+    lieValue: 1
+    neutralValue: 0
+    truthEmotion: 3
+    lieEmotion: 1
+    neutralEmotion: 2
+    voiceProfile: {fileID: 0}
+    callerName: Dimas
+    truthTelephoneHint: "\u201CRaga? Iya, dia misahin kok.\u201D\r\n\u201CDia gak
+      mukul siapa-siapa.\u201D\r\n\u201CDia cuma kena dorong doang.\u201D\r"
+    lieTelephoneHint: "\u201CHmm\u2026 aku sempat lihat Raga lari keluar dari lorong
+      setelah ributnya selesai.\u201D\r\n\u201CBajunya kusut juga.\u201D\r\n\u201CTapi
+      ya\u2026 aku gak tahu dia ngapain di dalamnya.\u201D\r"
+    neutralTelephoneHint: "\u201CRaga cuma jalan ngelewatin keributan itu.\u201D\r\n\u201CDia
+      gak berhenti.\u201D\r\n\u201CDia bukan tipe yang cari gara-gara.\u201D\r"
+    reactionTruth: "\u201CHadeh\u201D\r\n\u201CPerlu banget pake alat itu?\u201D\r\n\u201CGua
+      udah jujur.\u201D\r"
+    reactionLie: "\u201CHah!?\u201D\r\n\u201CSerius lu percaya mesin dibanding gue?\u201D\r\n\u201CSial
+      bener\u2026\u201D\r"
+    reactionNeutral: "\u201CAh, oke lah\u2026\u201D\r\n\u201CIya, gue lihat sedikit
+      lebih jelas dari yang gue omongin.\u201D\r\n\u201CTapi itu bukan urusan gue,
+      makanya gue gak mau ikut ribut.\u201D\r\n\u201CKadang diem itu lebih aman,
+      ngerti?\u201D\r"
+    stunReactionText: "\u201CWOI\u2014AARGH!!\u201D\r\n\u201CNgapain sih!? Gue udah
+      bilang apa adanya!\u201D\r"
+  - topicName: Laptop Hilang di Ruang Praktikum
+    truthText: " \u201CGua Raga.\u201D\r\n\u201CSoal laptop hilang itu\u2026 iya.\u201D\r\n\u201CGua
+      ada di ruang lab sebelum hilang.\u201D\r\n\u201CGua cuma numpang ngecas laptop
+      gua sendiri.\u201D\r\nTemen gua, Rio, taruh laptopnya di meja sebelah.\u201D\r\n\u201CGua
+      keluar sebentar buat beli minum, itu doang.\u201D\r\n\u201CPas balik, laptop
+      Rio udah hilang.\u201D\r\n\u201COrang-orang langsung nuduh gua karena gua yang
+      terakhir keliatan.\u201D\r\n\u201CPadahal gua tau gua gak ambil apa pun.\u201D\r\n\u201CNia
+      juga ada di situ sebelum kejadian, tapi dia kayak buru-buru keluar.\u201D\r\n\u201CGua
+      gak bilang dia pelakunya.\u201D\r\n\u201CCuma\u2026 dia satu-satunya yang lewat
+      pintu waktu gua pergi.\u201D\r\n\u201CAku kesel aja\u2026 gua bantu nyari malah
+      dibilang maling.\u201D\r"
+    lieText: "\u201CGua Raga.\u201D\r\n \u201CLaptop hilang?\r\n\u201CGua pernah
+      denger sama anak anak tongkrongan.\u201D\r\n\u201CKatanya Siri yang ambil.\r\n\u201CTapi
+      gue gak masuk lab hari itu.\u201D\r\n\u201CGue lagi nongkrong sama anak-anak
+      futsal dari pagi.\u201D\r\n\u201CKenapa gue terus yang disalahin sih?\u201D\r\n\u201COrang
+      hilang barang ya salah sendiri naruh sembarangan.\u201D\r"
+    neutralText: "\u201CGua Raga.\u201D\r\n\u201CLaptop hilang ya?\u201D\r\n\u201CGua
+      cuma lewat depan lab, bukan masuk.\u201D\r\n\u201CGua agak denger Rio teriak-teriak
+      nyari laptopnya\u2026\u201D\r\n\u201CTapi waktu itu gue buru-buru ke parkiran.\u201D\r\n\u201CGua
+      lihat pintu lab kebuka sedikit.\r\n\u201CKayaknya ada orang keluar sebelum
+      gue lewat.\u201D\r\n\u201CTapi gua gak liat wajahnya.\u201D\r\n\u201CGua gak
+      mau asal sebut nama.\u201D\r"
+    truthValue: 1
     lieValue: 0
     neutralValue: 0
-    callerName: dimas
-    truthTelephoneHint: 'iya benar sekali jujur
-
-      berdasarkan riset dari pak
-      presiden
-
-      berdasarkan riset dari pak presiden'
-    lieTelephoneHint: 'bohong jir
-
-      berdasarkan riset dari pak presiden
-
-      berdasarkan
-      riset dari pak presiden'
-    neutralTelephoneHint: 'berdasarkan riset dari pak presiden
-
-      berdasarkan
-      riset dari pak presiden
-
-      berdasarkan riset dari pak presiden'
-    reactionTruth: Tuh kan! Aku jujur!
-    reactionLie: H-Hah?! Aku ga bohong!
-    reactionNeutral: Hmm...
-    stunReactionText: '#$%@!&^#'
+    truthEmotion: 3
+    lieEmotion: 1
+    neutralEmotion: 2
+    voiceProfile: {fileID: 0}
+    callerName: Dimas
+    truthTelephoneHint: "\u201CRaga?\u201D\r\n\u201CIya, dia ada di sana.\u201D\r\n\u201CDia
+      keliatan gak megang barang gue kok.\u201D\r\n\u201CTapi ya\u2026 dia keluar
+      sendirian.\u201D\r\n\u201CJadi cuma dia doang yang bisa bersihin ruangannya
+      dari awal.\u201D\r"
+    lieTelephoneHint: "\u201CRaga?\u201D\r\n\u201CHmm\u2026 gue sempet lihat dia
+      masuk lab pagi itu sebentar.\u201D\r\n\u201CCuma bentar banget sih.\u201D\r\n\u201CMungkin
+      cuma ngecek sesuatu.\u201D\r"
+    neutralTelephoneHint: "\u201CRaga\u2026?\u201D\r\n\u201CGua cuma liat dia jalan
+      di koridor sambil main HP.\u201D\r\n\u201CDia keliatan cuek banget soal keributan
+      laptop itu.\u201D\r\n\u201CTapi dia memang sempet nanya ke gua \u2018Lab masih
+      kebuka gak?\u2019 pas pagi.\u201D\r"
+    reactionTruth: "\u201CYa\u2026 kalau alatnya bilang gue jujur ya syukurlah.\u201D\r\n\u201CCuma
+      sedih aja, lu tau? Orang gampang banget nuduh.\u201D\r"
+    reactionLie: "\u201CHah!? Serius?\r\nLu percaya mesin kayak gitu?\r\nGue gak
+      suka dikibulin gini.\u201D\r\r"
+    reactionNeutral: "\u201CYaelah\u2026\u201D\r\n\u201CLu maksa banget ya.\u201D\r\n\u201CFine\u2026
+      gue sempat nengok ke dalam lab sebentar.\u201D\r\n\u201CCuma ngecek ada orang
+      apa enggak.\u201D\r\n\u201CTapi gue gak liat apa-apa, beneran.\u201D\r"
+    stunReactionText: "\u201CAARGH\u2014!!\u201D\r\n\u201CBRO!! Sakit anjir!!\u201D\r\n\u201CGue
+      ngomong apa adanya!\u201D\r"
+  - topicName: Insiden Motor Tabrak Pembatas Jalan di Parkiran Kampus
+    truthText: "\u201CNama gua Raga.\u201D\r\n\u201CSoal motor yang nabrak pembatas
+      di parkiran\u2026\r\niya, gua ada pas sebelum kejadian.\u201D\r\n\u201CAldric\u2014kakak
+      tingkat gua\u2014datang ke gua buat nanya soal laporan praktikum.\r\nDia keliatan
+      capek banget, matanya merah, kayak kurang tidur.\u201D\r\n\u201CGua bilang
+      ke dia buat istirahat dulu.\r\nDia cuma ketawa sambil bilang \u2018gua kuat\u2019.\r\nAbis
+      itu dia langsung naik motor.\u201D\r\n\u201CGua sempet lihat dia goyang dikit
+      pas nyalain gas\u2026\r\ndan ya\u2026 lu tau kelanjutannya.\u201D\r\n\u201CGua
+      gak nyentuh motor itu, gua cuma ada di sisi kiri pas dia pergi.\u201D\r"
+    lieText: "\u201CNama gua Raga.\u201D\r\n\u201CSoal motor yang nabrak pembatas
+      di parkiran\u2026\u201D\r\n\u201CAku emang sempat lewat di parkiran waktu itu.\u201D\r\n\u201CCuma
+      bentar doang jemput temen buat nongkrong di warteg.\u201D\r\n\u201CPas gua
+      pergi banyak orang yang teriak gak tau kenapa.\u201D\r"
+    neutralText: "\u201CNama gua Raga.\u201D\r\n\u201CKecelakaan itu?\u201D\r\n\u201CGua
+      denger suara \u2018BRAK!\u2019 dari jauh, tapi gua gak tau siapa korbannya.\u201D\r\n\u201CGua
+      lagi duduk di pinggir lapangan, liatin HP.\u201D\r\n\u201CParkiran keliatan
+      dari situ, tapi samar.\u201D\r\n\u201CKayaknya gua lihat Aldric jalan sambil
+      bawa helm.\u201D\r\n\u201CTapi gua gak yakin itu sebelum atau sesudah kejadian.\u201D\r\n\u201CGua
+      gak mau sembarang ngomong.\u201D\r\n\u201CTakut salah.\u201D\r"
+    truthValue: 0
+    lieValue: 1
+    neutralValue: 0
+    truthEmotion: 2
+    lieEmotion: 2
+    neutralEmotion: 1
+    voiceProfile: {fileID: 0}
+    callerName: Dimas
+    truthTelephoneHint: "\u201CAldric waktu itu stres parah.\u201D\r\n\u201CSetahuku
+      Raga cuma ngobrol bentar sama dia.\u201D\r\n\u201CRaga keliatan gak ngapa-ngapain
+      kok.\u201D\r\n\u201CAldric yang ngebut sendiri.\u201D\r"
+    lieTelephoneHint: "\u201CRaga?\u201D\r\n\u201CHmm\u2026 kalo gak salah gua lihat
+      dia berdiri deket motor Aldric sebelum jatuh.\u201D\r\n\u201CDia gak lama banget
+      sih, tapi ya\u2026 dia ada di situ.\u201D\r"
+    neutralTelephoneHint: "\u201CRaga cuma duduk main HP waktu suara kecelakaan kedengeran.\u201D\r\n\u201CDia
+      gak deket-deket parkiran.\u201D\r\n\u201CDia cuma ngeliatin dari jauh.\u201D\r"
+    reactionTruth: "\u201CHmm\u2026 ya, gitu lah.\u201D\r\n\u201CGua ngomong apa
+      adanya.\u201D\r"
+    reactionLie: "\u201CHah!?\u201D\r\n\u201CMasa lu percaya mesin beginian!?\r\n\u201CGila
+      bener ini tempat\u2026\u201D\r"
+    reactionNeutral: "\u201COh gitu?\u201D\r\n\u201CJadi lu yakin gua nutupin sesuatu?\u201D\r\n\u201CYaudah\u2026
+      gua akui satu hal.\u201D\r\n\u201CGua sempet berdiri sebentar liatin parkiran,
+      cuma karena gua penasaran.\u201D\r\n\u201CTapi gua beneran gak deket-deket
+      motornya.\u201D\r"
+    stunReactionText: "\u201CAARGH!!\"\r\n\"Sakit banget anjir!\"\n\u201CGua cuma
+      bilang apa yang gua liat!\u201D\r"
   activeTopic:
     topicName: 
     truthText: 
@@ -183,6 +292,10 @@ MonoBehaviour:
     truthValue: 0
     lieValue: 0
     neutralValue: 0
+    truthEmotion: 0
+    lieEmotion: 3
+    neutralEmotion: 0
+    voiceProfile: {fileID: 0}
     callerName: Unknown
     truthTelephoneHint: 
     lieTelephoneHint: 
@@ -194,6 +307,8 @@ MonoBehaviour:
   bubblePrefab: {fileID: 5736675483342888346, guid: 84a37021de1c982408b3d65b56bd3210, type: 3}
   bubbleSpawnPoint: {fileID: 4428945694749587252}
   typeSpeed: 0.02
+  allowSkipTyping: 1
+  reactionHoldDuration: 1.8
 --- !u!114 &-5429056928232008951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,3 +357,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+--- !u!114 &7850743363270159502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4190291845773044640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02dc07a12b64a064f987e713a225d4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  neutralVoice: {fileID: 8300000, guid: 0b4046267d2c516419c395988433f3a9, type: 3}
+  happyVoice: {fileID: 8300000, guid: 8fedaa17224b30e46b08c7f55337524d, type: 3}
+  sadVoice: {fileID: 8300000, guid: 0b4046267d2c516419c395988433f3a9, type: 3}
+  madVoice: {fileID: 8300000, guid: 8fedaa17224b30e46b08c7f55337524d, type: 3}
+  lieDetectorTruthEmotion: 1
+  lieDetectorLieEmotion: 3
+  stunEmotion: 3
+  volume: 0.698
+  stopPreviousBeforePlay: 1

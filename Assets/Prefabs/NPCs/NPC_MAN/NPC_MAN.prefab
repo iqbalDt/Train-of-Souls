@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: -6303828856219993686}
   - component: {fileID: -1370915209544557773}
   - component: {fileID: -5356971725455999759}
+  - component: {fileID: -9072614161736431325}
   m_Layer: 5
   m_Name: NPC_MAN
   m_TagString: Untagged
@@ -145,27 +146,122 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topics:
-  - topicName: b
-    truthText: b
-    lieText: b
-    neutralText: b
+  - topicName: Kecelakaan Motor di Parkiran Kampus
+    truthText: "\u201CNama gua Aldric.\u201D\r\n\u201CSoal kecelakaan motor itu\u2026.\u201D\r\n\u201CGua
+      ngantuk parah waktu itu.\u201D\r\n\u201CTiga hari begadang bikin kepala pusing.\u201D\r\n\u201CBegitu
+      naik motor, badan gua goyang.\u201D\r\n\u201CGua gas sedikit, terus langsung
+      oleng.\u201D\r\n\u201CRaga ada di situ, tapi dia gak ngapa-ngapain.\u201D\r\n\u201CDia
+      cuma nanya gua kenapa.\u201D\r\n\u201CGua malu, makanya gua bilang motor gua
+      rusak padahal enggak.\u201D\r"
+    lieText: "\u201CNama gua Aldric.\u201D\r\n\u201CSoal kecelakaan motor itu\u2026.\u201D\r\n\u201CKecelakaan
+      itu bukan salah gua.\u201D\r\n\u201CMotor gua rusak.\u201D\r\n\u201CRemnya
+      blong.\u201D\r\n\u201CGua udah lapor bengkel, tapi lama ditangani.\u201D\r\n\u201CGua
+      jatuh karena mesin ngaco, bukan gua.\u201D\r"
+    neutralText: "\u201CNama gua Aldric.\u201D\r\n\u201CSoal kecelakaan motor itu\u2026.\u201D\r\n\u201CKejadian
+      itu agak samar buat gua.\u201D\r\n\u201CKepala gua mumet banget waktu itu.\u201D\r\n\u201CMotor
+      berasa goyang, tapi gua juga kecapean.\u201D\r\n\u201CGua gak tau itu salah
+      gua atau motor.\u201D\r\n\u201CYang jelas gua jatuh dan akhirnya bikin rame.\u201D\r\n\u201CRaga
+      bantu panggil orang.\u201D\r"
+    truthValue: 0
+    lieValue: 1
+    neutralValue: 0
+    truthEmotion: 2
+    lieEmotion: 3
+    neutralEmotion: 2
+    voiceProfile: {fileID: 0}
+    callerName: Hanson Philip
+    truthTelephoneHint: "\u201CMotor Aldric gak ada rusak apa pun.\u201D\r\n\u201CAku
+      cek sendiri hari itu.\u201D\r\n\u201CDia jatuh karena dirinya sendiri.\u201D\r"
+    lieTelephoneHint: "\u201CRem blong? Enggak lah.\u201D\r\n\u201CMotor Aldric normal-normal
+      aja.\u201D\r\n\u201CDia jatuh bukan karena mesin.\u201D\r"
+    neutralTelephoneHint: "\u201CAku cuma lihat Aldric jatuh.\u201D\r\n\u201CAku
+      gak tau itu salah motor atau orangnya.\u201D\r\n\u201CSemuanya terlihat cepat.\u201D\r"
+    reactionTruth: "\u201CHeh, ya jelas itu bener.\u201D"
+    reactionLie: "\u201CHah!? Serius mesin itu bilang gua bohong!?\u201D"
+    reactionNeutral: "\u201CHmm\u2026 oke, iya.\u201D\r\n\u201CGua lebih goyang dari
+      yang gua bilang tadi.\u201D\r"
+    stunReactionText: "\u201CWOI! ANJIR!\u201D\r\n\u201CLu serius nyetrum gua!?\u201D\r\n\u201CGua
+      gak mau ngomong apa-apa lagi!\u201D\r"
+  - topicName: "\u201CKasus Laptop Rusak di Ruang Praktikum"
+    truthText: "\u201CNama gua Aldric.\u201D\r\n\u201CSoal laptop rusak itu\u2026
+      iya, gua yang jaga ruang lab waktu kejadian.\u201D\r\n\u201CAda satu laptop
+      kampus yang tiba-tiba mati total pas kelas selesai.\u201D\r\n\u201CBukan karena
+      siapa-siapa, itu laptop emang udah tua.\u201D\r\n\u201CGua udah wanti-wanti
+      ke dosen kalau laptop itu harus diganti.\u201D\r\n\u201CRaga sempat masuk ruang
+      lab sebelum kejadian, tapi dia cuma ambil charger.\u201D\r\n\u201CNia juga
+      sempat lewat, tapi dia gak nyentuh apa pun.\u201D\r\n\u201CIntinya laptop itu
+      rusak bukan karena mahasiswa, tapi karena umur.\u201D\r"
+    lieText: "\u201CNama gua Aldric.\u201D\r\n\u201CSoal laptop rusak itu\u2026\u201D
+      \r\n\u201CBukan salah gua.\u201D\r\n\u201CItu pasti ada mahasiswa yang iseng.\u201D\r\n\u201CGua
+      liat ada yang colok-colok kabel aneh, mungkin itu penyebabnya.\u201D\r\n\u201CLaptop
+      itu sebelumnya normal kok.\u201D\r\n\u201CIT kampus cuma bikin alasan karena
+      mereka males benerin.\u201D\r"
+    neutralText: "\u201CNama gua Aldric.\u201D\r\n\u201CSoal laptop rusak itu\u2026\u201D
+      \r\n\u201CGua kurang yakin sih.\u201D\r\n\u201CLaptop itu mati tiba-tiba setelah
+      kelas beres.\u201D\r\n\u201CAda beberapa mahasiswa keluar masuk.\u201D\r\n\u201CGua
+      juga lagi sibuk cek kabel proyektor, jadi gak merhatiin detailnya.\u201D\r\n\u201CGua
+      gak tau itu rusak karena umur atau ada yang salah colok.\u201D\r"
     truthValue: 0
     lieValue: 0
+    neutralValue: 1
+    truthEmotion: 2
+    lieEmotion: 2
+    neutralEmotion: 1
+    voiceProfile: {fileID: 0}
+    callerName: Hanson Philip
+    truthTelephoneHint: "\u201CAldric udah lama ngelapor laptop itu soak.\u201D\r\n\u201CKami
+      di bagian IT juga bilang itu hardware lama.\u201D\r\n\u201CKerusakannya bukan
+      ulah mahasiswa.\u201D\r"
+    lieTelephoneHint: "\u201CHmm\u2026 Aldric bilang laptop itu normal?\u201D\r\n\u201CKami
+      catat laptop itu sering ngasih peringatan error sejak bulan lalu.\u201D\r\n\u201CUdah
+      mau mati memang.\u201D\r"
+    neutralTelephoneHint: "\u201CErr\u2026 aku cuma liat laptopnya mati.\u201D\r\n\u201CAku
+      gak liat siapa pun nyentuh.\u201D\r\n\u201CMungkin listrik kampus lagi error?\u201D\r"
+    reactionTruth: "\u201CHah? Ya jelas lah. Gua ngomong apa adanya.\u201D"
+    reactionLie: "\u201CHah!? Serius mesin itu bilang gua bohong!?\u201D\r\n\u201CAneh
+      banget\u2026\u201D\r"
+    reactionNeutral: "\u201CHmm\u2026 ya, memang gua tau laptop itu udah bermasalah
+      dari awal.\u201D"
+    stunReactionText: "\u201CAARGH! GILA!\u201D\r\n\u201CLu mau apa sih!? Semua udah
+      gua bilang!\u201D\r\n\u201CGua gak nambah apa-apa lagi!\u201D\r"
+  - topicName: Uang Kas Organisasi yang Hilang
+    truthText: "\u201CNama gua Aldric.\u201D\r\n\u201CSoal uang kas hilang itu\u2026
+      gua inget banget.\u201D\r\n\u201CGua yang pegang amplopnya pagi itu.\u201D\r\n\u201CTapi
+      gua gak ngambil sepeser pun.\u201D\r\n\u201CGua taruh amplopnya di meja ruang
+      sekre.\u201D\r\n\u201CPas balik dari beli galon, amplopnya udah gak ada.\u201D\r\n\u201CKirana
+      ada di ruang itu, tapi dia lagi rapat online.\u201D\r\n\u201CRaga masuk sebentar
+      buat ngambil spidol.\u201D\r\n\u201CGua gak curiga ke mereka.\u201D\r\n\u201CAmplopnya
+      hilang karena gua ceroboh naruh di tempat terbuka.\u201D\r"
+    lieText: "\u201CNama gua Aldric.\u201D\r\n\u201CSoal uang kas hilang itu\u2026
+      Bukan salah gua.\u201D\r\n\u201CGua yakin ada yang ngambil.\u201D\r\n\u201CMungkin
+      Raga atau Kirana.\u201D\r\n\u201CMereka terakhir ada di ruangan.\u201D\r\n\u201CGua
+      taruh amplopnya di laci kok, bukan meja.\u201D\r\n\u201CKalau hilang ya berarti
+      ada yang usil.\u201D\r"
+    neutralText: "\u201CNama gua Aldric.\u201D\r\n\u201CSoal uang kas hilang itu\u2026
+      gua agak lupa detilnya.\u201D\r\n\u201CGua ingat megang amplopnya.\u201D\r\n\u201CGua
+      taruh entah di meja, atau mungkin laci.\u201D\r\n\u201CBanyak orang keluar
+      masuk ruangan.\u201D\r\n\u201CKirana sibuk meeting.\u201D\r\n\u201CRaga cari
+      spidol.\u201D\r\n\u201CMungkin amplopnya kegeser atau keselip.\u201D\r"
+    truthValue: 0
+    lieValue: 1
     neutralValue: 0
-    callerName: Unknown
-    truthTelephoneHint: 'b
-
-      berdasarkan riset dari pak presiden'
-    lieTelephoneHint: 'b
-
-      berdasarkan riset dari pak presiden'
-    neutralTelephoneHint: 'b
-
-      berdasarkan riset dari pak presiden'
-    reactionTruth: Tuh kan! Aku jujur!
-    reactionLie: H-Hah?! Aku ga bohong!
-    reactionNeutral: Hmm...
-    stunReactionText: '#$%@!&^#'
+    truthEmotion: 1
+    lieEmotion: 2
+    neutralEmotion: 2
+    voiceProfile: {fileID: 0}
+    callerName: Hanson Philip
+    truthTelephoneHint: "\u201CIya, amplop uang kas itu memang ada di meja.\u201D\r\n\u201CKami
+      liat pas lewat.\u201D\r\n\u201CTumpukan mapnya berantakan, amplopnya gampang
+      banget keselip.\u201D\r"
+    lieTelephoneHint: "\u201CAmplop di laci? Enggak.\u201D\r\n\u201CAmp lop itu ada
+      di atas meja.\u201D\r\n\u201CKami sempat mindahin dikit biar gak ketutup map.\u201D\r"
+    neutralTelephoneHint: "\u201CErr\u2026 aku cuma liat map jatuh.\u201D\r\n\u201CMungkin
+      amplopnya kebawa angin?\u201D\r\n\u201CAtau ketendang? Aku kurang tahu.\u201D\r"
+    reactionTruth: "\u201CYa\u2026 itu bener. Gua emang lalai.\u201D"
+    reactionLie: "\u201CHah!? Ini bilang gua bohong!?\u201D\r\n\u201CGila\u2026\u201D\r\n"
+    reactionNeutral: "\u201CYa\u2026 gua udah nebak hasilnya bakal gitu.\u201D"
+    stunReactionText: "\u201CAARGH! LU SERIUS!?\u201D\r\n\u201CGua udah jujur dari
+      tadi!\u201D\r\n\u201CGua gak nambah apa-apa lagi!\u201D\r"
   activeTopic:
     topicName: 
     truthText: 
@@ -174,6 +270,10 @@ MonoBehaviour:
     truthValue: 0
     lieValue: 0
     neutralValue: 0
+    truthEmotion: 0
+    lieEmotion: 3
+    neutralEmotion: 0
+    voiceProfile: {fileID: 0}
     callerName: Unknown
     truthTelephoneHint: 
     lieTelephoneHint: 
@@ -185,6 +285,8 @@ MonoBehaviour:
   bubblePrefab: {fileID: 5736675483342888346, guid: 84a37021de1c982408b3d65b56bd3210, type: 3}
   bubbleSpawnPoint: {fileID: 4428945694749587252}
   typeSpeed: 0.02
+  allowSkipTyping: 1
+  reactionHoldDuration: 1.8
 --- !u!114 &-6303828856219993686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,3 +335,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+--- !u!114 &-9072614161736431325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4190291845773044640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02dc07a12b64a064f987e713a225d4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  neutralVoice: {fileID: 8300000, guid: 0b4046267d2c516419c395988433f3a9, type: 3}
+  happyVoice: {fileID: 8300000, guid: 8fedaa17224b30e46b08c7f55337524d, type: 3}
+  sadVoice: {fileID: 8300000, guid: 0b4046267d2c516419c395988433f3a9, type: 3}
+  madVoice: {fileID: 8300000, guid: 8fedaa17224b30e46b08c7f55337524d, type: 3}
+  lieDetectorTruthEmotion: 1
+  lieDetectorLieEmotion: 3
+  stunEmotion: 3
+  volume: 0.672
+  stopPreviousBeforePlay: 1

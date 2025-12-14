@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: -7608799671757190234}
   - component: {fileID: -7696695728523114117}
   - component: {fileID: 3096323468097836945}
+  - component: {fileID: 2382559229489143211}
   m_Layer: 5
   m_Name: NPC_OLDWOMAN
   m_TagString: Untagged
@@ -145,21 +146,125 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topics:
-  - topicName: d
-    truthText: d
-    lieText: d
-    neutralText: d
+  - topicName: Obat yang Hilang di Klinik Desa
+    truthText: "\u201CHalo, Nama saya Sari.\u201D \r\n\u201CHmm\u2026 klinik itu
+      ya? Iya, saya memang mampir sebentar.\u201D\r\n\u201CWaktu itu tangan saya
+      agak gemeteran, jadi tas saya kerjaannya nyenggol barang.\u201D\r\n\u201CWaktu
+      saya tarik tas saya lagi, kayaknya ada beberapa kotak kecil jatuh.\u201D\r\n\u201CSaya
+      pungut yang keliatan\u2026 tapi saya gak cek bawah meja.\u201D\r\n\u201CEmang
+      obat apa yang hilang?\u201D\r"
+    lieText: "\u201CHalo, Nama saya Sari.\u201D \r\n\u201CSoal obat hilang itu? Saya
+      tidak tahu apa-apa.\u201D\r\n\u201CSaya tidak masuk klinik, saya cuma lewat
+      depan pagar.\u201D\r\n\u201CSaya bahkan tidak ketemu Kirana atau Raga hari
+      itu.\u201D\r\n\u201CKalau ada yang hilang, itu pasti ulah orang lain.\u201D\r\n\u201CSaya
+      ini orang tua, bukan pencuri.\u201D\r\n\u201CKalian salah orang.\u201D\r"
+    neutralText: "\u201CHalo, Nama saya Sari.\u201D \r\n\u201CKlinik hari itu\u2026
+      saya tidak ingat jelas.\u201D\r\n\u201CKepala saya pusing, penglihatan agak
+      burem.\u201D\r\n\u201CSaya taruh tas\u2026 mungkin di meja, mungkin di kursi.\u201D\r\n\u201CMeja
+      suster penuh barang, saya cuma lewat.\u201D\r\n\u201CSaya tidak tahu apakah
+      saya menjatuhkan sesuatu.\u201D\r\n\u201CRasanya ruangan ramai dan berisik.\u201D\r\n\u201CSaya
+      gak yakin apa pun soal obat hilang itu.\u201D\r"
     truthValue: 0
-    lieValue: 0
+    lieValue: 1
     neutralValue: 0
-    callerName: Unknown
-    truthTelephoneHint: d
-    lieTelephoneHint: d
-    neutralTelephoneHint: d
-    reactionTruth: Tuh kan! Aku jujur!
-    reactionLie: H-Hah?! Aku ga bohong!
-    reactionNeutral: Hmm...
-    stunReactionText: '#$%@!&^#'
+    truthEmotion: 2
+    lieEmotion: 2
+    neutralEmotion: 1
+    voiceProfile: {fileID: 0}
+    callerName: Irdhi Hilyatal
+    truthTelephoneHint: "\u201CIya, ibu Sari memang ngejatuhin beberapa obat waktu
+      itu.\u201D\r\n\u201CKotaknya kecil-kecil, gampang banget meleset ke bawah meja.\u201D\r\n\u201CKemungkinan
+      besar obat yang hilang itu kegeser pas dia tarik tasnya.\u201D\r"
+    lieTelephoneHint: "\u201CIbu Sari bilang tidak masuk klinik? Itu salah.\u201D\r\n\u201CSaya
+      lihat jelas beliau duduk di kursi tunggu.\u201D\r\n\u201CIbu bahkan sempat
+      buka tasnya di sana.\u201D\r"
+    neutralTelephoneHint: "\u201CHari itu banyak orang mondar-mandir.\u201D\r\n\u201CSaya
+      kurang ingat siapa jatuhin apa.\u201D\r\n\u201CSaya cuma fokus ke antrean saja.\u201D\r"
+    reactionTruth: "\u201CYah\u2026 sudah saya bilang, saya cuma ceroboh.\u201D"
+    reactionLie: "\u201CHah!? Ini alat ngawur apa gimana!?\u201D"
+    reactionNeutral: "\u201CHm\u2026 ya, memang begitu seingat saya.\u201D"
+    stunReactionText: "\u201CAduh! Aduh! Ya Tuhan\u2026\u201D"
+  - topicName: Dompet Hilang di Halte Pasar
+    truthText: "\u201CHalo, Nama saya Sari.\u201D \r\n\u201CHalte pasar itu ya\u2026
+      saya memang duduk di sana agak lama.\u201D\r\n\u201CCapek habis belanja, jadi
+      saya taruh tas di bangku.\u201D\r\n\u201CAda ibu-ibu lain duduk mepet, saya
+      geser tas sedikit.\u201D\r\n\u201CSaya buka tas buat ambil uang receh, lalu
+      saya tutup lagi.\u201D\r\n\u201CSetelah itu saya berdiri karena bus datang.\u201D\r\n\u201CDompet
+      itu baru saya sadar hilang pas sudah di rumah.\u201D\r\n\u201CSaya gak yakin
+      jatuhnya di halte atau di jalan.\u201D\r\n\u201CKirana pernah bilang halte
+      itu rame dan sering kejadian begitu.\u201D\r\n\u201CKalau memang ada yang nemu
+      dompet itu\u2026 saya gak tau siapa.\u201D\r"
+    lieText: "\u201CHalo, Nama saya Sari.\u201D \r\n\u201CHalte pasar itu ya\u2026
+      Saya tidak ke halte pasar hari itu.\u201D\r\n\u201CSaya langsung pulang dari
+      pasar naik ojek.\u201D\r\n\u201CHalte itu memang terkenal dengan maling nya.\u201D\r\n\u201CKalo
+      ada dompet hilang itu sudah biasa.\u201D\r\n\u201CYang saya bawa ini dompet
+      saya.\u201D\r"
+    neutralText: "\u201CHalo, Nama saya Sari.\u201D \r\n\u201CHalte pasar itu ya\u2026\u201D\r\n\u201CSaya
+      duduk sebentar sambil main HP.\u201D\r\n\u201CTas saya taruh di pangkuan karena
+      takut diambil maling.\u201D\r\n\u201CHari itu saya pusing banget mikirin tagihan
+      sekolah anak saya..\u201D\r\n\u201CSaat angkot sudah dating ada orang yang
+      blang dia kehilangan dompet.\u201D\r\n\u201CAku gak tau siapa jadi aku langsung
+      pulang ke rumah.\u201D\r"
+    truthValue: 0
+    lieValue: 1
+    neutralValue: 0
+    truthEmotion: 2
+    lieEmotion: 1
+    neutralEmotion: 2
+    voiceProfile: {fileID: 0}
+    callerName: Irdhi Hilyatal
+    truthTelephoneHint: "\u201CIya, saya lihat nenek itu di halte.\u201D\r\n\u201CTasnya
+      dibuka beberapa kali.\u201D\r\n\u201CDompetnya kayaknya sempat jatuh ke bangku.\u201D\r"
+    lieTelephoneHint: "\u201CIbu Sari bilang gak ke halte?\u201D\r\n\u201CSaya lihat
+      beliau duduk cukup lama nunggu bus.\u201D\r\n\u201CBeliau sempat ngobrol sama
+      ibu-ibu lain.\u201D\r"
+    neutralTelephoneHint: "\u201CSaya cuma lihat halte rame.\u201D\r\n\u201CSaya
+      gak perhatiin siapa jatuhin apa.\u201D\r"
+    reactionTruth: "\u201CHmm\u2026 ya, segitu yang saya ingat.\u201D"
+    reactionLie: "\u201CHah!? Ini alat sembarangan!\u201D"
+    reactionNeutral: "\u201CYa\u2026 saya memang ceroboh dan pelupa.\u201D"
+    stunReactionText: "\u201CAduh! Astaga!\u201D\r\n\u201CKamu tega nyetrum orang
+      tua!?\u201D\r\n\u201CSaya gak mau ngomong lagi!\u201D\r"
+  - topicName: Membiarkan Tetangga Sekarat
+    truthText: "\u201CHalo, Nama saya Sari.\u201D\r\n\u201CTetangga Sekarat?\u201D\r\n\u201CWaktu
+      itu malam sudah larut.\u201D\r\n\u201CSaya dengar suara orang batuk keras dari
+      rumah sebelah.\u201D\r\n\u201CSaya tahu itu Pak Darno.\u201D\r\n\u201CDia tinggal
+      sendirian sejak istrinya meninggal.\u201D\r\n\u201CSaya sempat berdiri di balik
+      pintu.\u201D\r\n\u201CBatin saya bilang, \u2018panggil orang\u2019.\u201D\r\n\u201CTapi
+      saya capek dan lutut saya sakit.\u201D\r\n\u201CSaya pikir dia cuma kambuh
+      biasa.\u201D\r\n\u201CSaya pilih masuk kamar dan tidur.\u201D\r\n\u201CBesok
+      paginya\u2026 Pak Darno meninggal.\u201D\r"
+    lieText: "\u201CHalo, Nama saya Sari.\u201D\r\n\u201CTetangga Sekarat?\u201D\r\n\u201CWaktu
+      itu malam sudah larut.\u201D\r\n \u201CSaya tidak dengar apa-apa malam itu.\u201D\r\n\u201CSaya
+      tidur nyenyak.\u201D\r\n\u201CSaya baru tahu Pak Darno meninggal dari warga.\u201D\r\n\u201CSaya
+      tidak ada hubungannya.\u201D\r\n\u201CSaya juga sudah tua, mana mungkin saya
+      bisa nolong.\u201D\r"
+    neutralText: "\u201CHalo, Nama saya Sari.\u201D\r\n\u201CTetangga Sekarat?\u201D\r\n\u201CMalam
+      itu saya dengar batuk.\u201D\r\n\u201CSaya memang ragu.\u201D\r\n\u201CSaya
+      takut salah.\u201D\r\n\u201CTapi saya tetap keluar rumah.\u201D\r\n\u201CSaya
+      ketuk rumah Pak Darno.\u201D\r\n\u201CTidak ada jawaban.\u201D\r\n\u201CSaya
+      panggil warga setelah itu.\u201D\r\n\u201CAmbulans datang, tapi sudah terlambat.\u201D\r"
+    truthValue: 1
+    lieValue: 1
+    neutralValue: 0
+    truthEmotion: 2
+    lieEmotion: 2
+    neutralEmotion: 2
+    voiceProfile: {fileID: 0}
+    callerName: Irdhi Hilyatal
+    truthTelephoneHint: "\u201CSaya tetangga depan rumah Pak Darno.\u201D\r\n\u201CMalam
+      itu memang terdengar batuk keras.\u201D\r\n\u201CIbu Sari sempat buka pintu,
+      saya lihat bayangannya.\u201D\r\n\u201CTapi beliau nutup lagi.\u201D\r"
+    lieTelephoneHint: "\u201CIbu Sari bilang tidak dengar?\u201D\r\n\u201CAneh, karena
+      lampu rumah beliau nyala tengah malam.\u201D\r\n\u201CSaya lihat beliau berdiri
+      di balik pintu.\u201D\r"
+    neutralTelephoneHint: "\u201CSaya cuma dengar suara ribut sebentar.\u201D\r\n\u201CSaya
+      tidak tahu siapa yang pertama datang.\u201D\r"
+    reactionTruth: "\u201C\u2026iya.\u201D\r\n\u201CItu memang yang terjadi.\u201D\r"
+    reactionLie: "\u201CAh\u2026 alat ini kejam.\u201D"
+    reactionNeutral: "\u201CYa\u2026 itu yang saya lakukan.\u201D"
+    stunReactionText: "\u201CAduh\u2026\u201D\r\n\u201CSudah\u2026 jangan.\u201D\r\n\u201CSaya
+      tidak kuat.\u201D\r"
   activeTopic:
     topicName: 
     truthText: 
@@ -168,6 +273,10 @@ MonoBehaviour:
     truthValue: 0
     lieValue: 0
     neutralValue: 0
+    truthEmotion: 0
+    lieEmotion: 3
+    neutralEmotion: 0
+    voiceProfile: {fileID: 0}
     callerName: Unknown
     truthTelephoneHint: 
     lieTelephoneHint: 
@@ -179,6 +288,8 @@ MonoBehaviour:
   bubblePrefab: {fileID: 5736675483342888346, guid: 84a37021de1c982408b3d65b56bd3210, type: 3}
   bubbleSpawnPoint: {fileID: 4428945694749587252}
   typeSpeed: 0.02
+  allowSkipTyping: 1
+  reactionHoldDuration: 1.8
 --- !u!114 &-7608799671757190234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,3 +338,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+--- !u!114 &2382559229489143211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4190291845773044640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02dc07a12b64a064f987e713a225d4c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  neutralVoice: {fileID: 8300000, guid: 42a88236ccb47b5498cb03c643e5a15c, type: 3}
+  happyVoice: {fileID: 8300000, guid: 7d446dff11b3a1a4cacabf2b46c2bed3, type: 3}
+  sadVoice: {fileID: 8300000, guid: 3776bbc2a41efe240a0c269b127ce9ed, type: 3}
+  madVoice: {fileID: 8300000, guid: 3776bbc2a41efe240a0c269b127ce9ed, type: 3}
+  lieDetectorTruthEmotion: 1
+  lieDetectorLieEmotion: 3
+  stunEmotion: 3
+  volume: 0.711
+  stopPreviousBeforePlay: 1
