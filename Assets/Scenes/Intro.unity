@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 245131059}
   - component: {fileID: 245131058}
   - component: {fileID: 245131061}
+  - component: {fileID: 245131062}
   m_Layer: 5
   m_Name: Bos Tutorial
   m_TagString: Untagged
@@ -274,6 +275,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &245131062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245131056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 666d8c9f6be8f3d4fbae7319bb52dbec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogSpawner: {fileID: 1035477632}
+  bossAnimator: {fileID: 245131061}
+  voiceClip: {fileID: 8300000, guid: bdabf52c64b43354e850fa9b7880727f, type: 3}
+  loopWhileTalking: 1
+  volume: 1
+  talkTrigger: Boss Talk
+  stopTalkTrigger: StopTalk
 --- !u!1 &403531078
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +594,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 288, y: 253}
+  m_AnchoredPosition: {x: 353, y: 224}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1035477626
@@ -702,12 +722,29 @@ MonoBehaviour:
   bubblePrefab: {fileID: 5736675483342888346, guid: d5fba6b5ddadac745a37369aa2309a1d, type: 3}
   bubbleSpawnPoint: {fileID: 980719545}
   dialogLines:
-  - Selamat Datang di Train of Souils!.
-  - Selamat Datang di Train of Souils!.
+  - '"Selamat Datang di Train of Souils!"'
+  - '"Anda Telah Terpilih Untuk Menghakimi Berbagai Jiwa Manusia!"'
+  - '"Terdapat Beberapa Alat yang Dapat Anda Gunakan."'
+  - '"Pertama, Stun Gun."'
+  - '"Gunakan Stun Gun Ketika Jiwa Memberontak!!"'
+  - '"Kedua, Lie Detector."'
+  - '"Lie Detector akan Mendeteksi Kejujuran"'
+  - '"Ketiga, Telephone"'
+  - '"Gunakan Telephone untuk Menghubungi Orang Terdekat."'
+  - '"Jika Menurutmu Jiwa Tersebut Layak Masuk surga."'
+  - '"Tekan Tombol Biru di Bagian Mesin."'
+  - '"Namun Jika Sebaliknya!"'
+  - '"Tekan Tombol Merah Untuk Membawa Jiwa ke Dalam Neraka!"'
+  - '"Gunakan Nalar Anda Sebaik Mungkin."'
+  - '"Agar Setiap Jiwa Mendapatkan Takdir yang Adil!"'
+  - '"Selamat Menghakimi."'
   bossAnimator: {fileID: 245131061}
   talkTrigger: Talk
   stopTalkTrigger: StopTalk
   moveTrigger: StartMove
+  fromLeftTrigger: FromLeft
+  fromLeftDuration: 1.2
+  typingSpeed: 0.02
 --- !u!1 &1039322098
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,6 +889,8 @@ GameObject:
   - component: {fileID: 1101366727}
   - component: {fileID: 1101366726}
   - component: {fileID: 1101366729}
+  - component: {fileID: 1101366731}
+  - component: {fileID: 1101366730}
   m_Layer: 5
   m_Name: Roller
   m_TagString: Untagged
@@ -993,6 +1032,118 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1101366730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101366724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c163fba9fc93e642b12cef216cb67f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowCloseSound: {fileID: 8300000, guid: 33cd2ef9965c38f48842d74cf76b769f, type: 3}
+  volume: 1
+  playOnce: 1
+--- !u!82 &1101366731
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101366724}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1170191318
 GameObject:
   m_ObjectHideFlags: 0

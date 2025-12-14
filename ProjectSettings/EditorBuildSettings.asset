@@ -7,7 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    guid: f284e42af75681648abe6e06906e9853
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: f9d7d27abfe5c474782be65856e08dd9
@@ -17,9 +17,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GamePlay.unity
     guid: 89fd6a1b3643a4f409aaaea389f4d0df
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Ending.unity
     guid: f3ab3e94751db4d41b3943c82d695fee
+  - enabled: 1
+    path: Assets/Scenes/EndingBad.unity
+    guid: b41045acb17547548a8bdc85b6da8091
+  - enabled: 1
+    path: Assets/Scenes/EndingGood.unity
+    guid: c45e02355643f8241bdbda1d36f06c0e
+  - enabled: 1
+    path: Assets/Scenes/EndingPerfect.unity
+    guid: 3d66117442b239b49b6a36da3fc55815
+  - enabled: 1
+    path: Assets/Scenes/EndingVeryBad.unity
+    guid: c357245754627d24eb3fb0bb54248a73
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
