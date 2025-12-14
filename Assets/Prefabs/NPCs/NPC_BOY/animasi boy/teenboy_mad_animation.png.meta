@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: e2371609580d68c4282fc864eac421da
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5993385458718570112
+    second: teenboy_mad_animation_0
+  - first:
+      213: 5155637871473577278
+    second: teenboy_mad_animation_1
+  - first:
+      213: -6596863577590476519
+    second: teenboy_mad_animation_2
+  - first:
+      213: -8303270243351411103
+    second: teenboy_mad_animation_3
+  - first:
+      213: -7347795136126894274
+    second: teenboy_mad_animation_4
+  - first:
+      213: 6282334455323232705
+    second: teenboy_mad_animation_5
+  - first:
+      213: 2783877250427090433
+    second: teenboy_mad_animation_6
+  - first:
+      213: 2267956142081373186
+    second: teenboy_mad_animation_7
+  - first:
+      213: 7139746857349563570
+    second: teenboy_mad_animation_8
+  - first:
+      213: -246905620278650551
+    second: teenboy_mad_animation_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: teenboy_mad_animation_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 0
+        width: 66
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08679e40258cc2350800000000000000
+      internalID: 5993385458718570112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teenboy_mad_animation_1
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 0
+        width: 66
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3dcbbf04518c8740800000000000000
+      internalID: 5155637871473577278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teenboy_mad_animation_2
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 0
+        width: 66
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 911d102278b3374a0800000000000000
+      internalID: -6596863577590476519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teenboy_mad_animation_3
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 0
+        width: 66
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 166c7fec4bbd4cc80800000000000000
+      internalID: -8303270243351411103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teenboy_mad_animation_4
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 0
+        width: 66
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3f30d40143670a90800000000000000
+      internalID: -7347795136126894274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teenboy_mad_animation_5
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 0
+        width: 66
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c90db1e6e55f2750800000000000000
+      internalID: 6282334455323232705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teenboy_mad_animation_6
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 0
+        width: 66
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1067ff11c9152a620800000000000000
+      internalID: 2783877250427090433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teenboy_mad_animation_7
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 0
+        width: 66
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 204fce65816697f10800000000000000
+      internalID: 2267956142081373186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teenboy_mad_animation_8
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 0
+        width: 66
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b4488250f9751360800000000000000
+      internalID: 7139746857349563570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teenboy_mad_animation_9
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 0
+        width: 66
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9495e3285a0d29cf0800000000000000
+      internalID: -246905620278650551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      teenboy_mad_animation_0: 5993385458718570112
+      teenboy_mad_animation_1: 5155637871473577278
+      teenboy_mad_animation_2: -6596863577590476519
+      teenboy_mad_animation_3: -8303270243351411103
+      teenboy_mad_animation_4: -7347795136126894274
+      teenboy_mad_animation_5: 6282334455323232705
+      teenboy_mad_animation_6: 2783877250427090433
+      teenboy_mad_animation_7: 2267956142081373186
+      teenboy_mad_animation_8: 7139746857349563570
+      teenboy_mad_animation_9: -246905620278650551
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

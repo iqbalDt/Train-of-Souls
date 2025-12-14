@@ -1,162 +1,224 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class GameFlowController : MonoBehaviour
 {
-    [Header("References")]
-    public NPC_Spawner spawner;
+    public static GameFlowController Instance;
 
-    [Header("UI Buttons")]
-    public Button surgaButton;
-    public Button nerakaButton;
+    [Header("Current NPC")]
+    public NPC_Controller currentNPC;
+
+    [Header("Managers")]
+    public TelephoneManager telephoneManager;
+    public WinLoseManager winLoseManager; // ❌ JANGAN DIUBAH
+    public TicketPrinter ticketPrinter;
+
+    [Header("UI")]
     public Button telephoneButton;
+    public LieDetectorUI lieDetectorUI;
+    public Button lieDetectorButton;
 
-    [Header("Audio")]
-    public AudioSource trainAudio;
+    // ===== INTERNAL STATE =====
+    private bool dialogFinishedThisNPC;
+    private bool telephoneUsedThisNPC;
+    private bool waitingForTicket;
 
-    [Header("Game Settings")]
-    public int maxNPC = 5;
-    private int spawnedCount = 0;
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
-        spawnedCount = 0;
-        SpawnNPC();
+        var spawner = FindFirstObjectByType<NPC_Spawner>();
+        spawner?.SpawnNextNPC();
+
+        SetTelephoneInteractable(false);
+        SetLieDetectorInteractable(false);
     }
 
-    void SpawnNPC()
+    // =========================
+    // NPC FLOW
+    // =========================
+
+    // === VERSI BARU (DIREKOMENDASIKAN) ===
+    public void OnNPCReachedMiddle(NPC_Controller npc)
     {
-        // Reset telepon untuk NPC baru
-        TelephoneManager.Instance.ResetTelephoneForNewNPC();
-
-        // Spawn NPC baru
-        spawner.SpawnNextNPC();
-        spawnedCount++;
-
-        // Telepon HARUS nonaktif dulu
-        if (telephoneButton != null)
-            telephoneButton.interactable = false;
-
-        // Pastikan tombol pilihan aktif
-        surgaButton.interactable = true;
-        nerakaButton.interactable = true;
+        currentNPC = npc;
+        ResetNPCState();
     }
 
-    // Dipanggil saat NPC mencapai titik tengah
+    // === BACKWARD COMPATIBILITY (FIX ERROR CS7036) ===
     public void OnNPCReachedMiddle()
     {
-        surgaButton.gameObject.SetActive(true);
-        nerakaButton.gameObject.SetActive(true);
-        telephoneButton.gameObject.SetActive(true);
+        var npc = FindFirstObjectByType<NPC_Controller>();
+        if (npc != null)
+            OnNPCReachedMiddle(npc);
     }
 
-    // DIPANGGIL SETELAH DIALOG NPC SELESAI
+    void ResetNPCState()
+    {
+        dialogFinishedThisNPC = false;
+        telephoneUsedThisNPC = false;
+        waitingForTicket = false;
+
+        SetTelephoneInteractable(false);
+        SetLieDetectorInteractable(false);
+
+        telephoneManager?.ForceClose();
+        lieDetectorUI?.ShowNeutral();
+        ticketPrinter?.ResetPrinter();
+    }
+
     public void OnDialogFinished()
     {
-        var npc = spawner.currentNPC;
-        if (npc == null) return;
-
-        var ctrl = npc.GetComponent<NPC_Controller>();
-        UpdateLieDetector(ctrl.npcState);
-
-        // === TELEPON BARU BISA DIGUNAKAN SETELAH DIALOG SELESAI ===
-        if (telephoneButton != null)
-            telephoneButton.interactable = true;
+        dialogFinishedThisNPC = true;
+        SetTelephoneInteractable(!telephoneUsedThisNPC);
+        SetLieDetectorInteractable(true);
     }
 
-    // Update UI Lie Detector berdasarkan state NPC
-    public void UpdateLieDetector(NPCState state)
-    {
-        var lieUI = FindFirstObjectByType<LieDetectorUI>();
-        if (lieUI == null) return;
-
-        if (state == NPCState.Lie)
-            lieUI.ShowLie();
-        else if (state == NPCState.Truth)
-            lieUI.ShowTruth();
-        else
-            lieUI.ShowNeutral();
-    }
-
-    // ============================
-    //   PLAYER CHOICE HANDLING
-    // ============================
-
-    public void OnChooseHeaven() => HandleChoice(true);
-    public void OnChooseHell() => HandleChoice(false);
-
-    void HandleChoice(bool choseHeaven)
-    {
-        if (spawner == null || spawner.currentNPC == null)
-        {
-            Debug.LogError("Tidak ada NPC aktif saat pilihan dilakukan.");
-            return;
-        }
-
-        var npc = spawner.currentNPC;
-        var dialog = npc.GetComponent<DialogBubbleSpawner_Gameplay>();
-
-        if (dialog == null)
-        {
-            Debug.LogError("NPC tidak memiliki DialogBubbleSpawner_Gameplay!");
-            return;
-        }
-
-        if (dialog.GetActiveTopic() == null)
-        {
-            Debug.LogError("NPC tidak punya activeTopic! Pastikan topics terisi.");
-            return;
-        }
-
-        var moralValue = dialog.GetCurrentMoralValue();
-        bool correct = IsCorrectChoice(moralValue, choseHeaven);
-
-        // Laporkan ke WinLoseManager
-        WinLoseManager.Instance.RegisterChoice(correct);
-
-        // NPC keluar area
-        npc.GetComponent<NPC_Controller>().StartExitMovement();
-
-        // Disable tombol pilihan sementara
-        surgaButton.interactable = false;
-        nerakaButton.interactable = false;
-
-        StartCoroutine(SpawnDelay());
-    }
-
-    bool IsCorrectChoice(DialogBubbleSpawner_Gameplay.MoralValue value, bool choseHeaven)
-    {
-        if (value == DialogBubbleSpawner_Gameplay.MoralValue.Heaven)
-            return choseHeaven;
-
-        if (value == DialogBubbleSpawner_Gameplay.MoralValue.Hell)
-            return !choseHeaven;
-
-        return true; // neutral -> tidak pernah salah
-    }
-
-    IEnumerator SpawnDelay()
-    {
-        if (trainAudio != null)
-        {
-            trainAudio.Stop();
-            trainAudio.Play();
-            yield return new WaitForSeconds(trainAudio.clip.length);
-        }
-
-        if (spawnedCount < maxNPC)
-            SpawnNPC();
-    }
-
-    // ============================
-    //       TELEPHONE WRAPPER
-    // ============================
+    // =========================
+    // TELEPHONE
+    // =========================
 
     public void OnTelephonePressed()
     {
-        if (spawner.currentNPC == null) return;
+        if (currentNPC == null) return;
+        if (!dialogFinishedThisNPC) return;
+        if (telephoneUsedThisNPC) return;
+        if (waitingForTicket) return;
 
-        TelephoneManager.Instance.CallRelative(spawner.currentNPC);
+        telephoneUsedThisNPC = true;
+        SetTelephoneInteractable(false);
+
+        telephoneManager.StartTelephone(currentNPC.gameObject);
+    }
+
+    // =========================
+    // LIE DETECTOR
+    // =========================
+
+    public void OnPressLieDetector()
+    {
+        if (currentNPC == null) return;
+        if (!dialogFinishedThisNPC) return;
+        if (waitingForTicket) return;
+
+        var dialog = currentNPC.GetComponent<DialogBubbleSpawner_Gameplay>();
+        if (dialog == null) return;
+
+        var topic = dialog.GetActiveTopic();
+        if (topic == null) return;
+
+        var state = dialog.GetNPCState();
+        var anim = currentNPC.GetComponent<NPC_AnimatorController>();
+
+        // === UI INDICATOR ===
+        if (lieDetectorUI != null)
+        {
+            switch (state)
+            {
+                case NPCState.Truth:
+                    lieDetectorUI.ShowTruth();
+                    break;
+                case NPCState.Lie:
+                    lieDetectorUI.ShowLie();
+                    break;
+                default:
+                    lieDetectorUI.ShowNeutral();
+                    break;
+            }
+        }
+
+        // === NPC REACTION ===
+        if (state == NPCState.Lie)
+        {
+            // 🔥 AUTO MAD
+            if (anim != null)
+                anim.ForceMadAndSpeak();
+
+            dialog.ShowDetectorReaction(topic.reactionLie);
+        }
+        else if (state == NPCState.Truth)
+        {
+            dialog.ShowDetectorReaction(topic.reactionTruth);
+        }
+        else
+        {
+            dialog.ShowDetectorReaction(topic.reactionNeutral);
+        }
+    }
+
+    // =========================
+    // PLAYER DECISION
+    // =========================
+
+    public void OnChooseHeaven()
+    {
+        if (currentNPC == null) return;
+        if (waitingForTicket) return;
+
+        waitingForTicket = true;
+
+        SetTelephoneInteractable(false);
+        SetLieDetectorInteractable(false);
+        telephoneManager?.ForceClose();
+
+        ticketPrinter?.PrintHeavenTicket();
+    }
+
+    public void OnChooseHell()
+    {
+        if (currentNPC == null) return;
+        if (waitingForTicket) return;
+
+        waitingForTicket = true;
+
+        SetTelephoneInteractable(false);
+        SetLieDetectorInteractable(false);
+        telephoneManager?.ForceClose();
+
+        ticketPrinter?.PrintHellTicket();
+    }
+
+    // =========================
+    // TICKET CALLBACK
+    // =========================
+
+    public void OnTicketTaken()
+    {
+        if (currentNPC == null) return;
+        StartCoroutine(HandleNPCExitAndNext());
+    }
+
+    IEnumerator HandleNPCExitAndNext()
+    {
+        var spawner = FindFirstObjectByType<NPC_Spawner>();
+        if (spawner == null) yield break;
+
+        currentNPC.StartExitMovement();
+        yield return new WaitForSeconds(1.2f);
+
+        currentNPC = null;
+        waitingForTicket = false;
+
+        spawner.SpawnNextNPC();
+    }
+
+    // =========================
+    // UI UTIL
+    // =========================
+
+    void SetTelephoneInteractable(bool value)
+    {
+        if (telephoneButton != null)
+            telephoneButton.interactable = value;
+    }
+
+    void SetLieDetectorInteractable(bool value)
+    {
+        if (lieDetectorButton != null)
+            lieDetectorButton.interactable = value;
     }
 }
